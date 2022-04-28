@@ -1,27 +1,37 @@
 import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./Components/HeaderDrawer/index";
-import HomePage from "./Pages";
-import Farm from "./Pages/Farms/index";
-import Pools from './Pages/Pools/index'
-import MyStake from "./Pages/MyStake";
+import styled, { createGlobalStyle } from "styled-components";
+import Header from "./components/Header";
+import TabPanel from "./components/TabPanel";
+
+const AppWrapper = styled.div`
+  margin: 0;
+  @media (max-width: 900px) {
+    width: 100%;
+    overflow-x: hidden;
+  }
+`;
+
+const GlobalStyles = createGlobalStyle`
+*{
+
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+`;
 
 function App() {
   return (
-    <div className="App">
-    
-        <Router>
-        <Header>
-          <Route path="/" component={HomePage} exact/>
-          <Route path="/farm" component={Farm} exact/>
-          <Route path="/pools" component={Pools} exact/>
-          <Route path="/mystake" component={MyStake} exact/>
-          
-          </Header>
-        </Router>
-      
-    </div>
+    <>
+      <GlobalStyles />
+      <AppWrapper>
+        <Header />
+        <TabPanel />
+      </AppWrapper>
+    </>
   );
 }
 
