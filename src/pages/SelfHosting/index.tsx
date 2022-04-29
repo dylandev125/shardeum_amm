@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Token from "../../components/Token";
 import InfoItem from "../../components/SelfHosting/InfoItem";
+import Swap from "../../components/Swap";
 
 const SelfHostingContainer = styled.div`
   display: flex;
@@ -166,7 +167,9 @@ function SelfHosting() {
           </Text>
         </ScheduleCont>
       </InfoWrapper>
-      <PurchaseWrapper></PurchaseWrapper>
+      <PurchaseWrapper>
+        <Swap />
+      </PurchaseWrapper>
     </SelfHostingContainer>
   );
 }

@@ -4,6 +4,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SelfHosting from "../../pages/SelfHosting";
+import TabHeader from "./TabHeader";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -53,15 +54,22 @@ export default function BasicTabs() {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
+          <Tab label="Swap" {...a11yProps(0)} />
+          <Tab label="LIQUIDITY" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
+        <TabHeader
+          title="Swap"
+          text="Trade tokens in an instant with UniFarm for verified tokens and low fee"
+        />
         <SelfHosting />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <TabHeader
+          title="Swap"
+          text="Trade tokens in an instant with UniFarm for verified tokens and low fee"
+        />
       </TabPanel>
     </Box>
   );
