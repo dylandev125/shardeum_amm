@@ -5,6 +5,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SelfHosting from "../../pages/SelfHosting";
 import TabHeader from "./TabHeader";
+import Liquidity from "../Liquidity";
+import RemoveLiquidityModal from "../RemoveLiquidityModal";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -67,9 +69,11 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <TabHeader
-          title="Swap"
-          text="Trade tokens in an instant with UniFarm for verified tokens and low fee"
+          title="Liquidity"
+          text="Add Liquidity and earn a 0.3% fee on all trades proportional to your contribution in the pool"
         />
+        {/* <Liquidity /> */}
+        <RemoveLiquidityModal />
       </TabPanel>
     </Box>
   );

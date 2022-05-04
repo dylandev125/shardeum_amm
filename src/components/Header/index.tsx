@@ -3,6 +3,7 @@ import logo from "../../assets/images/logo.png";
 import styled from "styled-components";
 import ConnectWallet from "../NetworkPopup/ConnectWallet";
 import SwitchNetwork from "../NetworkPopup/SwitchNetwork";
+
 const HeaderWrapper = styled.div`
   height: 70px;
   display: flex;
@@ -21,6 +22,7 @@ const HeaderWrapper = styled.div`
     gap: 10px;
   }
 `;
+
 const Logo = styled.img`
   height: 45px;
   object-fit: contain;
@@ -29,7 +31,6 @@ const Logo = styled.img`
 const HeaderItems = styled.div`
   display: flex;
   align-items: center;
-
   @media (max-width: 900px) {
   }
 `;

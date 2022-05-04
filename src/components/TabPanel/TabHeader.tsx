@@ -42,7 +42,7 @@ interface TabHeaderProps {
 function TabHeader({ title, text }: TabHeaderProps) {
   return (
     <Wrapper>
-      <Title> {title}</Title>
+      <Title>{title}</Title>
       <Text>{text}</Text>
       <Divider />
     </Wrapper>
