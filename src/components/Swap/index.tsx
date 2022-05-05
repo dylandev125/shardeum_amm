@@ -5,6 +5,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import Selector from "./Selector";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
 import AmountInput from "./Input";
+import SelectTokenModal from "../SelectTokenModal";
+import Dialog from "../Dialog";
 const Wrapper = styled.div`
   width: 100%;
   border: 1px solid #e0e0e0;
@@ -83,14 +85,15 @@ function Swap() {
       </Header>
       <Body>
         <Pay>
-          <Selector label="You Pay" />
+          <SelectTokenModal children={<Selector label="You Pay" />} />
+          <Dialog />
           <AmountInput />
         </Pay>
         <StyledIconButton>
           <SwapVertIcon sx={{ color: "#fff", width: "30px", height: "30px" }} />
         </StyledIconButton>
         <Receive>
-          <Selector label="You Receive" />
+          <SelectTokenModal children={<Selector label="You Receive" />} />
           <AmountInput />
         </Receive>
         <ConnectWalletBtn>Connect Wallet</ConnectWalletBtn>
