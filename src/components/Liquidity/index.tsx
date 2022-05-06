@@ -147,62 +147,76 @@ const RemoveButton = styled.div`
 const Liquidity = () => {
   const [showDetails, setShowDetails] = React.useState(false);
   const [isRemoveModalOpen, setIsRemoveModalOpen] = React.useState(false);
+
   return (
     <div>
-      <div style={{ marginTop: "100px" }}>
-        <LiquidityItemContentDiv display={showDetails}>
-          <LiquidityItemDiv onClick={() => setShowDetails(!showDetails)}>
-            <LiquidityTitleDiv>
-              <LiquidityTitleImg src={BNB} />
-              <LiquidityTitleImg src={ETH} />
-              <LiquidityTitleText>ETH / USDT</LiquidityTitleText>
-            </LiquidityTitleDiv>
-            <LiquidityArrowDiv>
-              {showDetails ? (
-                <KeyboardArrowUpIcon
-                  style={{ width: "25px ", height: "25px", color: "#673AB7" }}
-                />
-              ) : (
-                <KeyboardArrowDownSharpIcon
-                  style={{ width: "25px ", height: "25px", color: "#673AB7" }}
-                />
-              )}
-            </LiquidityArrowDiv>
-          </LiquidityItemDiv>
-          <LiquidityDetailsDiv display={!showDetails}>
-            <DetailsDiv>
-              <DetailsItem>
-                <ItemTitle>Your total MATIC/USDC Pool</ItemTitle>
-                <ItemValue>0.0000001545515</ItemValue>
-              </DetailsItem>
-              <DetailsItem>
-                <ItemTitle>Pooled MATIC</ItemTitle>
-                <ItemValue>5.2954</ItemValue>
-              </DetailsItem>
-              <DetailsItem>
-                <ItemTitle>Pooled USDC</ItemTitle>
-                <ItemValue>5.2954</ItemValue>
-              </DetailsItem>
-              <DetailsItem>
-                <ItemTitle>Your Pool share</ItemTitle>
-                <ItemValue>0.04%</ItemValue>
-              </DetailsItem>
-            </DetailsDiv>
-            <DetailButtonsDiv>
-              <RemoveButton
-                onClick={() => {
-                  setIsRemoveModalOpen(true);
-                  setShowDetails(false);
-                }}
-              >
-                Remove
-              </RemoveButton>
-              <AddButton>Add</AddButton>
-            </DetailButtonsDiv>
-          </LiquidityDetailsDiv>
-        </LiquidityItemContentDiv>
-      </div>
-      {isRemoveModalOpen && <RemoveLiquidityModal />}
+      {isRemoveModalOpen ? (
+        <RemoveLiquidityModal />
+      ) : (
+        <>
+          <div style={{ marginTop: "100px" }}>
+            <LiquidityItemContentDiv display={showDetails}>
+              <LiquidityItemDiv onClick={() => setShowDetails(!showDetails)}>
+                <LiquidityTitleDiv>
+                  <LiquidityTitleImg src={BNB} />
+                  <LiquidityTitleImg src={ETH} />
+                  <LiquidityTitleText>ETH / USDT</LiquidityTitleText>
+                </LiquidityTitleDiv>
+                <LiquidityArrowDiv>
+                  {showDetails ? (
+                    <KeyboardArrowUpIcon
+                      style={{
+                        width: "25px ",
+                        height: "25px",
+                        color: "#673AB7",
+                      }}
+                    />
+                  ) : (
+                    <KeyboardArrowDownSharpIcon
+                      style={{
+                        width: "25px ",
+                        height: "25px",
+                        color: "#673AB7",
+                      }}
+                    />
+                  )}
+                </LiquidityArrowDiv>
+              </LiquidityItemDiv>
+              <LiquidityDetailsDiv display={!showDetails}>
+                <DetailsDiv>
+                  <DetailsItem>
+                    <ItemTitle>Your total MATIC/USDC Pool</ItemTitle>
+                    <ItemValue>0.0000001545515</ItemValue>
+                  </DetailsItem>
+                  <DetailsItem>
+                    <ItemTitle>Pooled MATIC</ItemTitle>
+                    <ItemValue>5.2954</ItemValue>
+                  </DetailsItem>
+                  <DetailsItem>
+                    <ItemTitle>Pooled USDC</ItemTitle>
+                    <ItemValue>5.2954</ItemValue>
+                  </DetailsItem>
+                  <DetailsItem>
+                    <ItemTitle>Your Pool share</ItemTitle>
+                    <ItemValue>0.04%</ItemValue>
+                  </DetailsItem>
+                </DetailsDiv>
+                <DetailButtonsDiv>
+                  <RemoveButton
+                    onClick={() => {
+                      setIsRemoveModalOpen(true);
+                      setShowDetails(false);
+                    }}
+                  >
+                    Remove
+                  </RemoveButton>
+                  <AddButton>Add</AddButton>
+                </DetailButtonsDiv>
+              </LiquidityDetailsDiv>
+            </LiquidityItemContentDiv>
+          </div>
+        </>
+      )}
     </div>
   );
 };

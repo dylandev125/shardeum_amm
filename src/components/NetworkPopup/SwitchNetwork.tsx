@@ -109,6 +109,7 @@ const ButtonImg = styled.img`
   height: 20px;
   object-fit: cover;
 `;
+
 const DummyNetworkData = [
   {
     name: "Ethereum",
@@ -127,11 +128,13 @@ const DummyNetworkData = [
     icon: aveLogo,
   },
 ];
+
 function SwitchNetwork() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [choosenNetwork, setChoosenNetwork] = React.useState(0);
+
   return (
     <Wrapper>
       <ConnectWalletButton onClick={handleOpen}>

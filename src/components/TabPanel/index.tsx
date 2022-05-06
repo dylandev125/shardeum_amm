@@ -99,8 +99,8 @@ export default function BasicTabs() {
           title="Liquidity"
           text="Add Liquidity and earn a 0.3% fee on all trades proportional to your contribution in the pool"
         />
-        {/* <Liquidity /> */}
-        <RemoveLiquidityModal />
+        <Liquidity />
+        {/* <RemoveLiquidityModal /> */}
       </TabPanel>
     </Box>
   );

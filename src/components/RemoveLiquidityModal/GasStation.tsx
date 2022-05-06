@@ -10,6 +10,9 @@ import SettingsIcon from "@mui/icons-material/Settings";
 const GasWrapper = styled.div`
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 600px) {
+    padding-left: 30px;
+  }
 `;
 
 const useStyle = makeStyles((theme) =>
