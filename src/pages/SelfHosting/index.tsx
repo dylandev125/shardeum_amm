@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Token from "../../components/Token";
 import InfoItem from "../../components/SelfHosting/InfoItem";
 import Swap from "../../components/Swap";
+import Wrapper from "../../components/Swap/Wrapper";
+import ethImg from "../../assets/images/eth.svg";
+import polygonImg from "../../assets/images/polygon.svg";
 
 const SelfHostingContainer = styled.div`
   display: flex;
@@ -169,6 +172,17 @@ function SelfHosting() {
       </InfoWrapper>
       <PurchaseWrapper>
         <Swap />
+        <Wrapper
+          Recieved="38.72 Matic"
+          Price="0.25%"
+          Network="$120.00"
+          Exchange="38.72 Matic"
+          Save="$1.97"
+          Route={[
+            { icon: ethImg, name: "Eth" },
+            { icon: polygonImg, name: "Bitcoin" },
+          ]}
+        />
       </PurchaseWrapper>
     </SelfHostingContainer>
   );
