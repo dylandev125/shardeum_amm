@@ -21,6 +21,13 @@ const CardDiv = styled.div`
     height: 100%;
   }
 `;
+const PositonDiv = styled.div`
+  width: 520px;
+  margin: 0px auto;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+`;
 const CardTitle = styled.div`
   height: 90px;
   display: flex;
@@ -49,7 +56,20 @@ const TitleText = styled.span`
   font-family: "Inter";
   font-style: normal;
 `;
-
+const MainDiv = styled.div`
+  padding: 30px;
+  @media only screen and (max-width: 600px) {
+    padding: 10px;
+  }
+`;
+const AmountDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 const SliderContentDiv = styled.div`
   margin-bottom: 10px;
 `;
@@ -58,7 +78,6 @@ const SliderContentButtons = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
 const SliderContentButton = styled.button`
   width: 65px;
   height: 34px;
@@ -102,7 +121,6 @@ const PriceValue = styled.div`
   font-size: 14px;
   line-height: 24px;
 `;
-
 const ApproveButton = styled.button`
   width: 50%;
   height: 55px;
@@ -118,8 +136,10 @@ const ApproveButton = styled.button`
   text-align: center;
   border: none;
   cursor: pointer;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
-
 const RemoveButton = styled.button`
   width: 50%;
   height: 55px;
@@ -134,21 +154,21 @@ const RemoveButton = styled.button`
   color: #a9a9a9;
   text-align: center;
   border: none;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
-const PoolText = styled.div`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 21px;
-`;
-
 const PriceDiv = styled.div`
   margin-top: 35px;
   display: flex;
   justify-content: space-between;
-  alig-items: center;
+  align-items: center;
   gap: 15px;
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const RemoveLiquidityModal = () => {
@@ -171,12 +191,8 @@ const RemoveLiquidityModal = () => {
             <GasStation />
           </CardTitle>
           <div style={{ border: "1px solid #E0E0E0" }}></div>
-          <div
-            style={{
-              padding: "30px",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <MainDiv>
+            <AmountDiv>
               <div>
                 <div>Amount</div>
                 <div>75%</div>
@@ -235,7 +251,7 @@ const RemoveLiquidityModal = () => {
                   </SliderContentButton>
                 </SliderContentButtons>
               </div>
-            </div>
+            </AmountDiv>
             <div
               style={{
                 marginTop: "25px",
@@ -274,9 +290,11 @@ const RemoveLiquidityModal = () => {
               <ApproveButton>Approve</ApproveButton>
               <RemoveButton disabled>Remove</RemoveButton>
             </PriceDiv>
-          </div>
-          <Position />
+          </MainDiv>
         </CardDiv>
+        <PositonDiv>
+          <Position />
+        </PositonDiv>
       </div>
     </div>
   );

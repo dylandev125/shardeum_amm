@@ -7,6 +7,7 @@ import SelfHosting from "../../pages/SelfHosting";
 import TabHeader from "./TabHeader";
 import Liquidity from "../Liquidity";
 import RemoveLiquidityModal from "../RemoveLiquidityModal";
+import { makeStyles } from "@material-ui/core/styles";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -25,11 +26,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <>{children}</>}
     </div>
   );
 }
@@ -41,7 +38,26 @@ function a11yProps(index: number) {
   };
 }
 
+const useStyles = makeStyles((theme) => ({
+  Tab: {
+    width: "240px",
+    color: "#A80084 !important",
+    fontFamily: "Inter !important",
+    fontStyle: "normal !important",
+    fontWeight: 600,
+    fontSize: "14px !important",
+    lineHeight: "24px !important",
+    [theme.breakpoints.down("xs")]: {
+      width: "50%",
+    },
+  },
+  indicator: {
+    background: "#A80084 !important",
+  },
+}));
+
 export default function BasicTabs() {
+  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -49,15 +65,26 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "90%", padding: "4rem 0px", margin: "0 auto" }}>
+    <Box sx={{ width: "90%", padding: "30px 0px", margin: "0px auto" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          classes={{ indicator: classes.indicator }}
         >
-          <Tab label="Swap" {...a11yProps(0)} />
-          <Tab label="LIQUIDITY" {...a11yProps(1)} />
+          <Tab
+            label="SWAP"
+            {...a11yProps(0)}
+            className={classes.Tab}
+            style={{ fontWeight: 600 }}
+          />
+          <Tab
+            label="LIQUIDITY"
+            {...a11yProps(1)}
+            className={classes.Tab}
+            style={{ fontWeight: 600 }}
+          />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
