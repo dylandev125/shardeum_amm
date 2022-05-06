@@ -86,7 +86,7 @@ function Swap() {
       <Body>
         <Pay>
           <SelectTokenModal children={<Selector label="You Pay" />} />
-          <Dialog />
+          <Dialog transaction="submitted" />
           <AmountInput />
         </Pay>
         <StyledIconButton>
