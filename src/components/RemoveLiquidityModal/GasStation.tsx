@@ -24,6 +24,7 @@ const useStyle = makeStyles((theme) =>
     },
   })
 );
+
 const GasStation = () => {
   const classes = useStyle();
   const [gasSwitch, setGasSwitch] = useState(true);

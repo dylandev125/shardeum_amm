@@ -6,6 +6,11 @@ import THT from "../../assets/Tokens/THT.png";
 import ETH from "../../assets/Tokens/ETH.png";
 import GasStation from "./GasStation";
 import Position from "./Position";
+import RemoveButton from "./RemoveButton";
+import CircularProgress from "@mui/material/CircularProgress";
+import ClipLoader from "react-spinners/ClipLoader";
+import Button from "@mui/material/Button";
+import { makeStyles } from "@material-ui/core/styles";
 
 const CardDiv = styled.div`
   width: 520px;
@@ -121,43 +126,7 @@ const PriceValue = styled.div`
   font-size: 14px;
   line-height: 24px;
 `;
-const ApproveButton = styled.button`
-  width: 50%;
-  height: 55px;
-  background: #a80084;
-  box-shadow: 4px 3px 14px 2px rgba(168, 0, 132, 0.19);
-  border-radius: 10px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 26px;
-  color: #ffffff;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  @media only screen and (max-width: 600px) {
-    width: 100%;
-  }
-`;
-const RemoveButton = styled.button`
-  width: 50%;
-  height: 55px;
-  background: #e0e0e0;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 26px;
-  color: #a9a9a9;
-  text-align: center;
-  border: none;
-  @media only screen and (max-width: 600px) {
-    width: 100%;
-  }
-`;
+
 const PriceDiv = styled.div`
   margin-top: 35px;
   display: flex;
@@ -170,8 +139,42 @@ const PriceDiv = styled.div`
     align-items: center;
   }
 `;
+const RemoveBtn = styled.button`
+  width: 50%;
+  height: 55px;
+  background: #e0e0e0;
+  border: none;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 26px;
+  color: #a9a9a9;
+  text-align: center;
+  cursor: pointer;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
+const useStyles = makeStyles((theme) => ({
+  Root: {
+    width: "50%",
+    height: "55px",
+    borderRadius: "10px !important",
+    fontFamily: "Inter !important",
+    fontStyle: "normal !important",
+    fontSize: "15px !important",
+    lineHeight: "26px !important",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
+}));
 
 const RemoveLiquidityModal = () => {
+  const classes = useStyles();
   const [sliderValue, setSliderValue] = useState<number>(25);
   const handleSliderChange = (newValue: number) => {
     setSliderValue(newValue);
@@ -179,6 +182,17 @@ const RemoveLiquidityModal = () => {
   const handleSliderButtonClick = (value: number) => {
     setSliderValue(value);
   };
+  const [Isloading, setLoding] = React.useState(false);
+  const [approve, setApprove] = useState(false);
+
+  const handleApprove = () => {
+    setLoding(true);
+    setTimeout(() => {
+      setLoding(false);
+      setApprove(true);
+    }, 1500);
+  };
+
   return (
     <div>
       <div style={{ marginTop: "50px" }}>
@@ -261,7 +275,7 @@ const RemoveLiquidityModal = () => {
               }}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img src={THT} />
+                <img src={THT} alt="THT" />
                 <TokenText>USDT</TokenText>
               </div>
               <TokenValue>10.00</TokenValue>
@@ -276,7 +290,7 @@ const RemoveLiquidityModal = () => {
               }}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img src={ETH} />
+                <img src={ETH} alt="ETH" />
                 <TokenText>ETH</TokenText>
               </div>
               <TokenValue>0.002355</TokenValue>
@@ -287,8 +301,31 @@ const RemoveLiquidityModal = () => {
               <PriceValue>1 USDT = 0.334 ETH</PriceValue>
             </PriceDiv>
             <PriceDiv>
-              <ApproveButton>Approve</ApproveButton>
-              <RemoveButton disabled>Remove</RemoveButton>
+              <Button
+                variant="contained"
+                className={classes.Root}
+                onClick={handleApprove}
+                style={{
+                  textTransform: "none",
+                  fontWeight: 600,
+                  boxShadow: approve
+                    ? "none"
+                    : "4px 3px 14px 2px rgba(168, 0, 132, 0.19)",
+                  background: approve ? "white" : "#a80084",
+                  color: approve ? "#00C853" : "white",
+                  border: approve ? "1px solid #00C853" : "",
+                }}
+              >
+                {Isloading ? (
+                  <>
+                    <ClipLoader size={20} color={"white"} />
+                    &nbsp;&nbsp;Approve
+                  </>
+                ) : (
+                  <>&nbsp;&nbsp; Approve</>
+                )}
+              </Button>
+              {approve ? <RemoveButton /> : <RemoveBtn>Remove</RemoveBtn>}
             </PriceDiv>
           </MainDiv>
         </CardDiv>

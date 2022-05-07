@@ -46,6 +46,7 @@ const Position = () => {
             <div style={{ display: "flex", alignItems: "center" }}>
               <img
                 src={THT}
+                alt="THT"
                 style={{ width: "31px", height: "31px", marginTop: "5px" }}
               />
               <TokenText>USDT</TokenText>
@@ -56,6 +57,7 @@ const Position = () => {
             <div style={{ display: "flex", alignItems: "center" }}>
               <img
                 src={ETH}
+                alt="ETH"
                 style={{ width: "31px", height: "31px", marginTop: "5px" }}
               />
               <TokenText>ETH</TokenText>

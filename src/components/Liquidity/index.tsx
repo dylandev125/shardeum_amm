@@ -15,7 +15,6 @@ const LiquidityItemDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  border-radius: 10px;
   padding: 25px;
   margin: 30px 0;
   cursor: pointer;
@@ -57,7 +56,6 @@ const LiquidityItemContentDiv = styled.div<LiquidityItemDetailsProps>`
     border-radius: 10px;
   `}
 `;
-
 const LiquidityDetailsDiv = styled.div<LiquidityItemDetailsProps>`
   padding: 25px 25px;
   cursor: pointer;
@@ -67,7 +65,6 @@ const LiquidityDetailsDiv = styled.div<LiquidityItemDetailsProps>`
   display: none;
 `}
 `;
-
 const DetailsDiv = styled.div`
   display: flex;
   justify-content: space-between;
@@ -97,7 +94,6 @@ const ItemValue = styled.div`
   color: #212121;
   margin-top: 10px;
 `;
-
 const DetailButtonsDiv = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -126,7 +122,6 @@ const AddButton = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const RemoveButton = styled.div`
   width: 280px;
   height: 55px;
@@ -154,7 +149,7 @@ const Liquidity = () => {
         <RemoveLiquidityModal />
       ) : (
         <>
-          <div style={{ marginTop: "100px" }}>
+          <div>
             <LiquidityItemContentDiv display={showDetails}>
               <LiquidityItemDiv onClick={() => setShowDetails(!showDetails)}>
                 <LiquidityTitleDiv>

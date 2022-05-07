@@ -19,7 +19,6 @@ const StyledBox = styled(Box)`
   background-color: #ffffff;
   border: none;
   box-shadow: 24px;
-
   @media (max-width: 900px) {
     width: 95%;
   }
