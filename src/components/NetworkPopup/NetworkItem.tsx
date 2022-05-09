@@ -1,6 +1,7 @@
 import React from "react";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import styled from "styled-components";
+
 interface Props {
   image: string;
   id: number;
@@ -9,6 +10,7 @@ interface Props {
   setChoosen?: (choosen: number) => void;
   type: string;
 }
+
 const Wrapper = styled.div`
   width: 85px;
   padding: 6px;
