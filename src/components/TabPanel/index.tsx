@@ -2,7 +2,7 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import SelfHosting from "../../pages/SelfHosting";
+import SelfHosting from "../../Pages/SelfHosting";
 import TabHeader from "./TabHeader";
 import Liquidity from "../Liquidity";
 import { makeStyles } from "@material-ui/core/styles";
