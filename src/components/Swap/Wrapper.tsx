@@ -8,6 +8,10 @@ justify-content:space-between;
 position:relative;
 padding:2rem;
 width:500px;
+
+@media (max-width:900px){
+  width:90%;
+}
 `;
 const WrapperContent = Style.div`
 display:flex;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
@@ -137,19 +137,63 @@ const MyButton = styled.button<{ default: boolean }>`
   background-color: ${(props) => (props.default ? "#a80084" : "#fff")};
   color: ${(props) => (props.default ? "#fff" : "#a80084")};
 `;
-
+const ConnectWalletBtn = styled.button`
+  background: #a80084;
+  box-shadow: 4px 3px 14px 2px rgba(168, 0, 132, 0.19);
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  height: 55px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 20px;
+  :disabled {
+    cursor: not-allowed;
+    background: #e0e0e0;
+    box-shadow: none;
+    color: #616161;
+  }
+`;
 interface Props {
   transaction: "submitted" | "added" | "successful";
+  approved: boolean;
+  setApproved: (approved: boolean) => void;
 }
 
-export default function Dialog({ transaction }: Props) {
-  const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
+export default function Dialog({ transaction, approved, setApproved }: Props) {
+  const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      {transaction === "submitted" && (
+        <ConnectWalletBtn
+          onClick={() => {
+            setOpen(true);
+            setApproved(true);
+          }}
+          disabled={approved}
+        >
+          Allow UniFarm to use Token X
+        </ConnectWalletBtn>
+      )}
+      {transaction === "submitted" && (
+        <ConnectWalletBtn
+          onClick={() => {
+            setOpen(true);
+            setApproved(true);
+          }}
+          disabled={!approved}
+        >
+          Swap
+        </ConnectWalletBtn>
+      )}
       <Modal
         open={open}
         onClose={handleClose}

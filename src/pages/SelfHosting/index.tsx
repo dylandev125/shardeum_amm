@@ -17,8 +17,8 @@ const SelfHostingContainer = styled.div`
   margin-left: -24px;
   @media (max-width: 900px) {
     flex-direction: column-reverse;
-    padding: 20px 10px;
-    margin-bottom: 30px;
+    padding: 0px;
+    margin: 0px;
   }
 `;
 const InfoWrapper = styled.div`

@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { IconButton } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
+
 import Selector from "./Selector";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
 import AmountInput from "./Input";
 import SelectTokenModal from "../SelectTokenModal";
 import Dialog from "../Dialog";
+import SettingsModal from "./SettingsModal";
 const Wrapper = styled.div`
   width: 100%;
   border: 1px solid #e0e0e0;
@@ -74,19 +74,20 @@ const ConnectWalletBtn = styled.button`
   text-transform: capitalize;
   margin-top: 20px;
 `;
+
+const Buttons = styled.div``;
 function Swap() {
+  const [isWalletConnected, setIsWalletConnected] = React.useState(false);
+  const [approved, setApproved] = React.useState(false);
   return (
     <Wrapper>
       <Header>
         <Title>Swap</Title>
-        <IconButton>
-          <SettingsIcon sx={{ color: "#212121" }} />
-        </IconButton>
+        <SettingsModal />
       </Header>
       <Body>
         <Pay>
           <SelectTokenModal children={<Selector label="You Pay" />} />
-          <Dialog transaction="submitted" />
           <AmountInput />
         </Pay>
         <StyledIconButton>
@@ -96,7 +97,19 @@ function Swap() {
           <SelectTokenModal children={<Selector label="You Receive" />} />
           <AmountInput />
         </Receive>
-        <ConnectWalletBtn>Connect Wallet</ConnectWalletBtn>
+        {isWalletConnected ? (
+          <Buttons>
+            <Dialog
+              transaction="submitted"
+              setApproved={setApproved}
+              approved={approved}
+            />
+          </Buttons>
+        ) : (
+          <ConnectWalletBtn onClick={() => setIsWalletConnected(true)}>
+            Connect Wallet
+          </ConnectWalletBtn>
+        )}
       </Body>
     </Wrapper>
   );

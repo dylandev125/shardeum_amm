@@ -7,7 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Divider } from "@mui/material";
 import ethImg from "../../assets/images/eth.svg";
 import TokenItem from "./TokenItem";
-
+import ManageToken from "./ManageToken";
 const StyledBox = styled(Box)`
   position: absolute;
   top: 50%;
@@ -130,26 +130,6 @@ const Tokens = styled.div`
   }
 `;
 
-const ManageTokenListBtn = styled.button`
-  width: 100%;
-  margin-top: 2rem;
-  height: 55px;
-  border: none;
-  color: #ffffff;
-  background: #a80084;
-  box-shadow: 4px 3px 14px 2px rgba(168, 0, 132, 0.19);
-  border-radius: 10px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 26px;
-  cursor: pointer;
-  :hover {
-    opacity: 0.95;
-  }
-`;
-
 interface Props {
   children: React.ReactNode;
 }
@@ -197,7 +177,7 @@ export default function SelectTokenModal({ children }: Props) {
               <TokenItem icon={ethImg} title="Eth" description="Ethereum" />
               <TokenItem icon={ethImg} title="Eth" description="Ethereum" />
             </Tokens>
-            <ManageTokenListBtn> Manage token list </ManageTokenListBtn>
+            <ManageToken children={"Manage token list "} />
           </DetailsBody>
         </StyledBox>
       </Modal>
