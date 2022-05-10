@@ -110,7 +110,7 @@ const AddButton = styled.div`
   width: 280px;
   height: 55px;
   background: #a80084;
-  box-shadow: 0px 7px 18px -2px rgba(103, 58, 183, 0.56);
+  box-shadow: 4px 3px 14px 2px rgba(168, 0, 132, 0.19);
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
@@ -125,7 +125,7 @@ const AddButton = styled.div`
 const RemoveButton = styled.div`
   width: 280px;
   height: 55px;
-  border: 1px solid #673ab7;
+  border: 1px solid #a80084;
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 15px;

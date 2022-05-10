@@ -9,6 +9,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import warningImg from "../../assets/images/warning.png";
 import metamask from "../../assets/images/metamask.png";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import MiniSnackBar from "../Snackbar";
 
 const RemoveBtn = styled.button`
   width: 50%;
@@ -68,7 +69,7 @@ const SupplyBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #673ab7;
+  background: #a80084;
   box-shadow: 0px 7px 18px -2px rgba(103, 58, 183, 0.56);
   border-radius: 10px;
   border: none;
@@ -139,7 +140,7 @@ const RatesValue = styled.div`
   font-weight: 700;
   font-size: 14px;
   line-height: 24px;
-  color: #673ab7;
+  color: #a80084;
 `;
 const RatesLabel = styled.div`
   font-family: "Inter";
@@ -184,12 +185,12 @@ const ViewLink = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: #673ab7;
+  color: #a80084;
   text-decoration: none;
 `;
 const TokenButton = styled.button`
   width: 100%;
-  border: 1px solid #673ab7;
+  border: 1px solid #a80084;
   border-radius: 10px;
   height: 55px;
   display: flex;
@@ -200,7 +201,7 @@ const TokenButton = styled.button`
   font-weight: 600;
   font-size: 15px;
   line-height: 26px;
-  color: #673ab7;
+  color: #a80084;
   background: white;
   margin-top: 30px;
   gap: 10px;
@@ -229,6 +230,7 @@ const RemoveButton = () => {
   const classes = useStyle();
 
   const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -239,12 +241,14 @@ const RemoveButton = () => {
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
+      setOpen2(true);
     }, 1500);
   };
 
   return (
     <>
       <RemoveBtn onClick={handleOpen}>Remove</RemoveBtn>
+
       {open ? (
         <Modal
           open={open}
@@ -348,6 +352,13 @@ const RemoveButton = () => {
       ) : (
         ""
       )}
+      <MiniSnackBar
+        open={open2}
+        severity="success"
+        title="Liquidity Removed"
+        message="Removed 6.45 USDT and 4.91 MATIC, View on Explorer"
+        handleClose={() => setOpen2(false)}
+      />
     </>
   );
 };

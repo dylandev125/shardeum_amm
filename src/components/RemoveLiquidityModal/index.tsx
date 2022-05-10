@@ -7,7 +7,6 @@ import ETH from "../../assets/Tokens/ETH.png";
 import GasStation from "./GasStation";
 import Position from "./Position";
 import RemoveButton from "./RemoveButton";
-import CircularProgress from "@mui/material/CircularProgress";
 import ClipLoader from "react-spinners/ClipLoader";
 import Button from "@mui/material/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -157,6 +156,21 @@ const RemoveBtn = styled.button`
     width: 100%;
   }
 `;
+const PercentageAmount = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+`;
+const PercentageValue = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+`;
 
 const useStyles = makeStyles((theme) => ({
   Root: {
@@ -176,7 +190,7 @@ const useStyles = makeStyles((theme) => ({
 const RemoveLiquidityModal = () => {
   const classes = useStyles();
   const [sliderValue, setSliderValue] = useState<number>(25);
-  const handleSliderChange = (newValue: number) => {
+  const handleSliderChange = (event: Event, newValue: number) => {
     setSliderValue(newValue);
   };
   const handleSliderButtonClick = (value: number) => {
@@ -208,8 +222,8 @@ const RemoveLiquidityModal = () => {
           <MainDiv>
             <AmountDiv>
               <div>
-                <div>Amount</div>
-                <div>75%</div>
+                <PercentageAmount>Amount</PercentageAmount>
+                <PercentageValue>{sliderValue}%</PercentageValue>
               </div>
               <div>
                 <SliderContentDiv>
@@ -218,8 +232,8 @@ const RemoveLiquidityModal = () => {
                     value={sliderValue}
                     aria-label="Small"
                     valueLabelDisplay="off"
-                    style={{ color: "#A80084" }}
                     onChange={() => handleSliderChange}
+                    style={{ color: "#A80084" }}
                   />
                 </SliderContentDiv>
                 <SliderContentButtons>

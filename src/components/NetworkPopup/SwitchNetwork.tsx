@@ -28,6 +28,7 @@ const StyledBox = styled(Box)`
 `;
 
 const Wrapper = styled.div``;
+
 const ConnectWalletButton = styled(Button)`
   &.MuiButton-root {
     background: #fff;
