@@ -14,18 +14,18 @@ import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import Tab from "@mui/material/Tab";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Switch from "@mui/material/Switch";
+import { makeStyles } from "@material-ui/core/styles";
 
 const StyledBox = styled(Box)`
+  width: 480px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 480px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  border: none;
-  box-shadow: 24px;
-
+  background: #ffffff;
+  border: 1px solid #a9a9a9;
+  box-shadow: 0px 24px 38px 3px rgba(0, 0, 0, 0.14);
+  border-radius: 15px;
   @media (max-width: 900px) {
     width: 95%;
   }
@@ -34,34 +34,56 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  position: relative;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
 `;
-const Title = styled.h1`
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #000;
-  line-height: 1.6;
-  letter-spacing: 0.0075em;
+const Title = styled.span`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
 `;
-const StyledDivider = styled(Divider)`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-`;
-
 const DetailsBody = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 0rem 1rem;
-  margin-bottom: 1rem;
-  padding: 0rem 1rem;
+  padding: 25px;
 `;
+const GasCont = styled.div`
+  width: 100%;
+`;
+const GasHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Cont = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+const GasTitle = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #616161;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+const Description = styled.p`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #616161;
+`;
+
 const StyledIcon = styled(ArrowBackIcon)`
   cursor: pointer;
   color: #000;
@@ -81,7 +103,6 @@ const SearchInput = styled.input`
   color: #616161;
   padding: 0.5rem 0px;
 `;
-
 const Tokens = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,7 +115,6 @@ const Tokens = styled.div`
     display: none;
   }
 `;
-
 const StyledCloseIcon = styled(CloseIcon)`
   cursor: pointer;
   color: #000;
@@ -107,10 +127,7 @@ const StyledCloseIcon = styled(CloseIcon)`
     border-radius: 50%;
   }
 `;
-const GasCont = styled.div`
-  width: 100%;
-  margin-top: 1rem;
-`;
+
 const GasItemCont = styled.div<{ checked: boolean }>`
   display: flex;
   flex-direction: row;
@@ -130,46 +147,6 @@ const GasItemCont = styled.div<{ checked: boolean }>`
   }}
 `;
 
-const Cont = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-const GasTitle = styled.h2`
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  /* identical to box height, or 171% */
-
-  display: flex;
-  align-items: center;
-
-  /* font/body */
-
-  color: #616161;
-`;
-const Description = styled.p`
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  /* identical to box height, or 171% */
-
-  display: flex;
-  align-items: center;
-
-  /* font/body */
-
-  color: #616161;
-`;
-const GasHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 const GasBody = styled.div``;
 const GasItemSection = styled.div`
   display: flex;
@@ -331,8 +308,33 @@ const TokenUnlockCont = styled.div`
   width: 100%;
   justify-content: flex-end;
 `;
+const useStyles = makeStyles((theme) => ({
+  Tab: {
+    width: "50%",
+    height: "48px",
+    color: "#000000 !important",
+    fontFamily: "Inter !important",
+    fontStyle: "normal !important",
+    fontWeight: 600,
+    fontSize: "14px !important",
+    lineHeight: "24px !important",
+    [theme.breakpoints.down("xs")]: {
+      width: "50%",
+    },
+  },
+  indicator: {
+    background: "#000000 !important",
+  },
+  switch: {
+    "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+      backgroundColor: "#000000",
+    },
+  },
+}));
 
 export default function SettingsModal() {
+  const classes = useStyles();
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -345,7 +347,7 @@ export default function SettingsModal() {
   return (
     <div>
       <IconButton onClick={handleOpen}>
-        <SettingsIcon sx={{ color: "#212121" }} />
+        <SettingsIcon style={{ color: "#212121" }} />
       </IconButton>
       <Modal
         open={open}
@@ -357,21 +359,22 @@ export default function SettingsModal() {
           <Header>
             <Title>Settings</Title>
             <StyledCloseIcon onClick={handleClose} />
-            <StyledDivider />
           </Header>
           <DetailsBody>
             <GasCont>
               <GasHeader>
-                <Cont>
-                  <GasTitle>
-                    <LocalGasStationIcon />
-                    Gas
-                  </GasTitle>
-                </Cont>
+                <GasTitle>
+                  <LocalGasStationIcon
+                    style={{ width: "21px", height: "21px" }}
+                  />
+                  Gas Price
+                </GasTitle>
                 <Cont>
                   <Description>Medium (41.76 - 43.76 Gwei)</Description>
                   <IconButton onClick={() => setGasOptions(!gasOptions)}>
-                    <KeyboardArrowDownIcon />
+                    <KeyboardArrowDownIcon
+                      style={{ width: "20px", height: "20px" }}
+                    />
                   </IconButton>
                 </Cont>
               </GasHeader>
@@ -380,7 +383,7 @@ export default function SettingsModal() {
                   <GasItemCont checked={checked === 1}>
                     <GasItemSection>
                       <StyledRadio
-                        color="secondary"
+                        style={{ color: "#000000" }}
                         onClick={() => setChecked(1)}
                         checked={checked === 1}
                       />
@@ -395,7 +398,7 @@ export default function SettingsModal() {
                   <GasItemCont checked={checked === 2}>
                     <GasItemSection>
                       <StyledRadio
-                        color="secondary"
+                        style={{ color: "#000000" }}
                         onClick={() => setChecked(2)}
                         checked={checked === 2}
                       />
@@ -410,7 +413,7 @@ export default function SettingsModal() {
                   <GasItemCont checked={checked === 3}>
                     <GasItemSection>
                       <StyledRadio
-                        color="secondary"
+                        style={{ color: "#000000" }}
                         onClick={() => setChecked(3)}
                         checked={checked === 3}
                       />
@@ -425,23 +428,128 @@ export default function SettingsModal() {
                 </GasBody>
               )}
             </GasCont>
+
             <Box sx={{ width: "100%" }}>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <Tabs
                   value={value}
                   onChange={handleChange}
                   aria-label="basic tabs example"
+                  classes={{ indicator: classes.indicator }}
                 >
-                  <Tab label="Basic" {...a11yProps(0)} />
-                  <Tab label="Advanced" {...a11yProps(1)} />
+                  <Tab
+                    label="BASIC"
+                    {...a11yProps(0)}
+                    className={classes.Tab}
+                    style={{ fontWeight: 600 }}
+                  />
+                  <Tab
+                    label="ADVANCED"
+                    {...a11yProps(1)}
+                    className={classes.Tab}
+                    style={{ fontWeight: 600 }}
+                  />
                 </Tabs>
               </Box>
-              <TabPanel value={value} index={0}></TabPanel>
+
+              {/* TabPanel */}
+
+              <TabPanel value={value} index={0}>
+                <GasBody>
+                  <GasItemCont checked={checked === 1}>
+                    <GasItemSection>
+                      <StyledRadio
+                        onClick={() => setChecked(1)}
+                        checked={checked === 1}
+                        style={{ color: "#000000" }}
+                      />
+                      <GasItemTitle>High</GasItemTitle>
+                    </GasItemSection>
+                    <GasItemSection>
+                      <GasItemDescription>
+                        67.20 - 72.20 Gwei
+                      </GasItemDescription>
+                    </GasItemSection>
+                  </GasItemCont>
+                  <GasItemCont checked={checked === 2}>
+                    <GasItemSection>
+                      <StyledRadio
+                        onClick={() => setChecked(2)}
+                        checked={checked === 2}
+                        style={{ color: "#000000" }}
+                      />
+                      <GasItemTitle>Medium</GasItemTitle>
+                    </GasItemSection>
+                    <GasItemSection>
+                      <GasItemDescription>
+                        67.20 - 72.20 Gwei
+                      </GasItemDescription>
+                    </GasItemSection>
+                  </GasItemCont>
+                  <GasItemCont checked={checked === 3}>
+                    <GasItemSection>
+                      <StyledRadio
+                        onClick={() => setChecked(3)}
+                        checked={checked === 3}
+                        style={{ color: "#000000" }}
+                      />
+                      <GasItemTitle>Low</GasItemTitle>
+                    </GasItemSection>
+                    <GasItemSection>
+                      <GasItemDescription>
+                        67.20 - 72.20 Gwei
+                      </GasItemDescription>
+                    </GasItemSection>
+                  </GasItemCont>
+                </GasBody>
+                <ToleranceCont>
+                  <InputLabel>Slippage Tolerance</InputLabel>
+                  <Percentages>
+                    <Percentage>0.1%</Percentage>
+                    <Percentage>1.5%</Percentage>
+                    <Percentage>3.0%</Percentage>
+                    <Percentage>
+                      <Input
+                        type="number"
+                        style={{ textAlign: "center", color: "#000000" }}
+                      />
+                    </Percentage>
+                  </Percentages>
+                  <InputLabel style={{ color: "#000000" }}>
+                    Your transaction may be frontrun
+                  </InputLabel>
+                </ToleranceCont>
+                <DeadlineCont>
+                  <DeadlineInput>
+                    <InputLabel>Deadline</InputLabel>
+                    <Input
+                      type="number"
+                      style={{
+                        color: "#000000",
+                        height: "30px",
+                      }}
+                    />
+                    <Mins>Mins</Mins>
+                  </DeadlineInput>
+                  <TokenUnlockCont>
+                    <InputLabel style={{ color: "#000" }}>
+                      Unlock Tokens Permanently
+                    </InputLabel>
+                    <Switch
+                      style={{ color: "#000000" }}
+                      className={classes.switch}
+                    />
+                  </TokenUnlockCont>
+                </DeadlineCont>
+              </TabPanel>
+
+              {/* TabPanel */}
+
               <TabPanel value={value} index={1}>
                 <CurrentGasCont>
                   <InfoIcon sx={{ color: "#03a9f4" }} />
                   <GasInfo>
-                    Current base fee is <b>58.35 Gwei</b>
+                    Current base fee is&nbsp;<b>58.35 Gwei</b>
                   </GasInfo>
                 </CurrentGasCont>
 
@@ -492,7 +600,10 @@ export default function SettingsModal() {
                     <InputLabel style={{ color: "#000" }}>
                       Unlock Tokens Permanently
                     </InputLabel>
-                    <Switch color="secondary" />
+                    <Switch
+                      style={{ color: "#000000" }}
+                      className={classes.switch}
+                    />
                   </TokenUnlockCont>
                 </DeadlineCont>
               </TabPanel>
@@ -503,6 +614,7 @@ export default function SettingsModal() {
     </div>
   );
 }
+
 function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
@@ -525,7 +637,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: "25px 0px" }}>{children}</Box>}
+      {value === index && <>{children}</>}
     </div>
   );
 }

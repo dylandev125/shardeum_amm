@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "@mui/material/Button";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import Selector from "./Selector";
+import SwapVertIcon from "@mui/icons-material/SwapVert";
+import AmountInput from "./Input";
+import SelectTokenModal from "../SelectTokenModal";
 import Dialog from "../Dialog";
 import SettingsModal from "./SettingsModal";
-import SelectTokenModal from "../SelectTokenModal";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Button from "@mui/material/Button";
+import ETH from "../../assets/Tokens/ETH.png";
+import THT from "../../assets/Tokens/THT.png";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -34,6 +40,45 @@ const Title = styled.h1`
 const Body = styled.div`
   padding: 30px 30px;
 `;
+const Pay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Receive = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0px;
+`;
+const StyledIconButton = styled.div`
+  background: #000000;
+  width: 50px;
+  height: 50px;
+  box-shadow: 4px 3px 14px 2px rgba(0, 0, 0, 0.18);
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+`;
+const ConnectWalletBtn = styled.button`
+  background: #000000;
+  box-shadow: 4px 3px 14px 2px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  height: 55px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 20px;
+`;
 const SwapWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -59,6 +104,58 @@ const SwapArrow = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
+const TokenButton = styled(Button)`
+  &.MuiButton-root {
+    width: 115px;
+    height: 38px;
+    background: rgb(237, 238, 242);
+    box-shadow: rgb(0 0 0 / 8%) 0px 6px 10px;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Inter;
+    font-style: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: none;
+    :hover {
+      background: #ced0d9 !important;
+    }
+  }
+`;
+const MaxButton2 = styled.button`
+  width: 35px;
+  height: 22px;
+  background: #ced0d9;
+  color: #000000;
+  border-radius: 10px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: Inter;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+`;
+const BalanceDiv = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Inter;
+  font-style: normal;
+  color: #6e727d;
+  gap: 5px;
+`;
 const SwapCard = styled.div`
   height: 100px;
   background: #f7f8fa;
@@ -80,55 +177,9 @@ const InputValue = styled.input`
   font-family: "Inter custom", sans-serif;
   position: relative;
 `;
-const BalanceDiv = styled.div`
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 15px;
-  font-weight: 500;
-  font-family: Inter;
-  font-style: normal;
-  color: #6e727d;
-  gap: 5px;
-`;
-const MaxButton2 = styled.button`
-  width: 35px;
-  height: 22px;
-  background: #ced0d9;
-  color: #000000;
-  border-radius: 10px;
-  border: none;
-  font-size: 13px;
-  font-weight: 500;
-  font-family: Inter;
-  font-style: normal;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-`;
-const ConnectWalletBtn = styled.button`
-  background: #000000;
-  box-shadow: 4px 3px 14px 2px rgba(0, 0, 0, 0.18);
-  border-radius: 10px;
-  width: 100%;
-  border: none;
-  height: 55px;
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 26px;
-  text-align: center;
-  text-transform: capitalize;
-  margin-top: 20px;
-`;
+const Buttons = styled.div``;
 
-function Swap() {
+function Swap2() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [approved, setApproved] = useState(false);
   const [swap, setSwap] = useState(true);
@@ -170,6 +221,21 @@ function Swap() {
                     onChange={OnChageField}
                   />
                   <SelectTokenModal />
+                  {/* <TokenButton>
+                    <img
+                      src={ETH}
+                      alt="ETH"
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        marginRight: "5px",
+                      }}
+                    />
+                    ETH
+                    <KeyboardArrowDownIcon
+                      style={{ width: "23px", height: "23px" }}
+                    />
+                  </TokenButton> */}
                 </InputDiv>
                 <BalanceDiv>
                   Balance: 1.289
@@ -188,6 +254,21 @@ function Swap() {
                     onChange={OnChageField2}
                   />
                   <SelectTokenModal />
+                  {/* <TokenButton>
+                    <img
+                      src={THT}
+                      alt="THT"
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        marginRight: "5px",
+                      }}
+                    />
+                    THT
+                    <KeyboardArrowDownIcon
+                      style={{ width: "23px", height: "23px" }}
+                    />
+                  </TokenButton> */}
                 </InputDiv>
                 <BalanceDiv>Balance: 1.289</BalanceDiv>
               </SwapCard>
@@ -206,6 +287,21 @@ function Swap() {
                     onChange={OnChageField2}
                   />
                   <SelectTokenModal />
+                  {/* <TokenButton>
+                    <img
+                      src={THT}
+                      alt="THT"
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        marginRight: "5px",
+                      }}
+                    />
+                    THT
+                    <KeyboardArrowDownIcon
+                      style={{ width: "23px", height: "23px" }}
+                    />
+                  </TokenButton> */}
                 </InputDiv>
                 <BalanceDiv>Balance: 1.289</BalanceDiv>
               </SwapCard>
@@ -221,6 +317,21 @@ function Swap() {
                     onChange={OnChageField}
                   />
                   <SelectTokenModal />
+                  {/* <TokenButton>
+                    <img
+                      src={ETH}
+                      alt="ETH"
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        marginRight: "5px",
+                      }}
+                    />
+                    ETH
+                    <KeyboardArrowDownIcon
+                      style={{ width: "23px", height: "23px" }}
+                    />
+                  </TokenButton> */}
                 </InputDiv>
                 <BalanceDiv>
                   Balance: 1.289
@@ -230,14 +341,25 @@ function Swap() {
             </>
           )}
         </SwapWrapper>
+        {/* <Pay>
+          <SelectTokenModal children={<Selector label="You Pay" />} />
+          <AmountInput />
+        </Pay>
+        <StyledIconButton>
+          <SwapVertIcon sx={{ color: "#fff", width: "30px", height: "30px" }} />
+        </StyledIconButton>
+        <Receive>
+          <SelectTokenModal children={<Selector label="You Receive" />} />
+          <AmountInput />
+        </Receive>*/}
         {isWalletConnected ? (
-          <>
+          <Buttons>
             <Dialog
               transaction="submitted"
               setApproved={setApproved}
               approved={approved}
             />
-          </>
+          </Buttons>
         ) : (
           <ConnectWalletBtn onClick={() => setIsWalletConnected(true)}>
             Connect Wallet
@@ -248,4 +370,4 @@ function Swap() {
   );
 }
 
-export default Swap;
+export default Swap2;

@@ -4,7 +4,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import TabHeader from "./TabHeader";
 import Liquidity from "../Liquidity";
-import Swap2 from "../Swap2";
+import Swap2 from "../Swap/Swap2";
 import { makeStyles } from "@material-ui/core/styles";
 import SelfHosting from "../../pages/SelfHosting";
 

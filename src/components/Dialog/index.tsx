@@ -171,6 +171,7 @@ export default function Dialog({ transaction, approved, setApproved }: Props) {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
   const [checkbalance, setCheckbalance] = React.useState(false);
+
   return (
     <>
       {transaction === "submitted" && (
