@@ -87,7 +87,7 @@ const P = styled.p`
 const StyledButton = styled.button`
   width: 100%;
   height: 55px;
-  border: 1px solid #a80084;
+  border: 1px solid #000000;
   border-radius: 10px;
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -96,7 +96,7 @@ const StyledButton = styled.button`
   line-height: 26px;
   text-align: center;
   background-color: transparent;
-  color: #a80084;
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +109,7 @@ const Link = styled.a`
   font-size: 14px;
   line-height: 24px;
   text-align: center;
-  color: #a80084;
+  color: #000000;
   text-decoration: none;
 `;
 const Icon = styled.img`
@@ -126,7 +126,7 @@ const Buttons = styled.div`
 const MyButton = styled.button<{ default: boolean }>`
   width: 50%;
   height: 55px;
-  border: 1px solid #a80084;
+  border: 1px solid #000000;
   border-radius: 10px;
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -134,12 +134,12 @@ const MyButton = styled.button<{ default: boolean }>`
   font-size: 15px;
   line-height: 26px;
   text-align: center;
-  background-color: ${(props) => (props.default ? "#a80084" : "#fff")};
-  color: ${(props) => (props.default ? "#fff" : "#a80084")};
+  background-color: ${(props) => (props.default ? "#000000" : "#fff")};
+  color: ${(props) => (props.default ? "#fff" : "#000000")};
 `;
 const ConnectWalletBtn = styled.button`
-  background: #a80084;
-  box-shadow: 4px 3px 14px 2px rgba(168, 0, 132, 0.19);
+  background: #000000;
+  box-shadow: 1px 14px 54px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   width: 100%;
   border: none;
@@ -163,26 +163,43 @@ const ConnectWalletBtn = styled.button`
 interface Props {
   transaction: "submitted" | "added" | "successful";
   approved: boolean;
+
   setApproved: (approved: boolean) => void;
 }
 
 export default function Dialog({ transaction, approved, setApproved }: Props) {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
-
+  const [checkbalance, setCheckbalance] = React.useState(false);
   return (
-    <div>
+    <>
       {transaction === "submitted" && (
-        <ConnectWalletBtn
-          onClick={() => {
-            setOpen(true);
-            setApproved(true);
-          }}
-          disabled={approved}
-        >
-          Allow UniFarm to use Token X
-        </ConnectWalletBtn>
+        <>
+          {checkbalance ? (
+            <>
+              <ConnectWalletBtn
+                style={{
+                  background: "#C62828",
+                  boxShadow: "0px 7px 18px -2px rgba(198, 40, 40, 0.51)",
+                }}
+              >
+                Insufficient balance
+              </ConnectWalletBtn>
+            </>
+          ) : (
+            <ConnectWalletBtn
+              onClick={() => {
+                setOpen(true);
+                setApproved(true);
+              }}
+              disabled={approved}
+            >
+              Allow UniFarm to use Token X
+            </ConnectWalletBtn>
+          )}
+        </>
       )}
+
       {transaction === "submitted" && (
         <ConnectWalletBtn
           onClick={() => {
@@ -194,6 +211,7 @@ export default function Dialog({ transaction, approved, setApproved }: Props) {
           Swap
         </ConnectWalletBtn>
       )}
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -232,6 +250,6 @@ export default function Dialog({ transaction, approved, setApproved }: Props) {
           </DetailsBody>
         </StyledBox>
       </Modal>
-    </div>
+    </>
   );
 }

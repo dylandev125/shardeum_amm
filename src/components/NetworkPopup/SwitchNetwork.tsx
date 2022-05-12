@@ -6,10 +6,42 @@ import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 import { Divider } from "@mui/material";
 import NetworkItem from "./NetworkItem";
-import ethLogo from "../../assets/images/eth.svg";
+import ETH from "../../assets/Tokens/ETH.png";
 import aveLogo from "../../assets/images/ave.png";
 import bnLogo from "../../assets/images/bn.svg";
 import polygonLogo from "../../assets/images/polygon.svg";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
+const Wrapper = styled.div``;
+const ConnectWalletButton = styled(Button)`
+  &.MuiButton-root {
+    width: 138px;
+    height: 45px;
+    background: #ffffff;
+    border: 1px solid #a9a9a9;
+    border-radius: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #393939;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: none;
+    // gap: 5px;
+    :hover {
+      background: #e6e6e680 !important;
+    }
+  }
+`;
+const ButtonImg = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  margin-right: 5px;
+`;
 
 const StyledBox = styled(Box)`
   position: absolute;
@@ -27,32 +59,6 @@ const StyledBox = styled(Box)`
   }
 `;
 
-const Wrapper = styled.div``;
-
-const ConnectWalletButton = styled(Button)`
-  &.MuiButton-root {
-    background: #fff;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin-left: 0.5rem;
-    padding: 6px 16px;
-    letter-spacing: 2px;
-    text-indent: 5px;
-    height: 45px;
-    border: 1px solid #a9a9a9;
-    font-weight: 500;
-    box-shadow: none;
-    text-transform: capitalize;
-    color: #000;
-    font-weight: 500;
-    :hover {
-      background: #e6e6e680 !important;
-    }
-  }
-`;
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
@@ -105,16 +111,11 @@ const StyledCloseIcon = styled(CloseIcon)`
     border-radius: 50%;
   }
 `;
-const ButtonImg = styled.img`
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-`;
 
 const DummyNetworkData = [
   {
     name: "Ethereum",
-    icon: ethLogo,
+    icon: ETH,
   },
   {
     name: "Binance",
@@ -144,6 +145,7 @@ function SwitchNetwork() {
           alt={DummyNetworkData[choosenNetwork].name}
         />
         {DummyNetworkData[choosenNetwork].name}
+        <KeyboardArrowDownIcon style={{ width: "15px", height: "15px" }} />
       </ConnectWalletButton>
       <Modal
         open={open}

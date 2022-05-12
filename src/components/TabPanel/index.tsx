@@ -2,10 +2,11 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import SelfHosting from "../../Pages/SelfHosting";
 import TabHeader from "./TabHeader";
 import Liquidity from "../Liquidity";
+import Swap2 from "../Swap2";
 import { makeStyles } from "@material-ui/core/styles";
+import SelfHosting from "../../pages/SelfHosting";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -39,7 +40,7 @@ function a11yProps(index: number) {
 const useStyles = makeStyles((theme) => ({
   Tab: {
     width: "240px",
-    color: "#A80084 !important",
+    color: "#000000 !important",
     fontFamily: "Inter !important",
     fontStyle: "normal !important",
     fontWeight: 600,
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   indicator: {
-    background: "#A80084 !important",
+    background: "#000000 !important",
   },
 }));
 
@@ -63,7 +64,13 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "90%", padding: "30px 0px", margin: "0px auto" }}>
+    <Box
+      sx={{
+        width: "90%",
+        margin: "0px auto",
+        marginTop: "30px",
+      }}
+    >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -75,13 +82,13 @@ export default function BasicTabs() {
             label="SWAP"
             {...a11yProps(0)}
             className={classes.Tab}
-            style={{ fontWeight: 600 }}
+            style={{ fontWeight: 600, height: "55px" }}
           />
           <Tab
             label="LIQUIDITY"
             {...a11yProps(1)}
             className={classes.Tab}
-            style={{ fontWeight: 600 }}
+            style={{ fontWeight: 600, height: "55px" }}
           />
         </Tabs>
       </Box>
@@ -98,6 +105,7 @@ export default function BasicTabs() {
           text="Add Liquidity and earn a 0.3% fee on all trades proportional to your contribution in the pool"
         />
         <Liquidity />
+        {/* <Swap2 /> */}
         {/* <RemoveLiquidityModal /> */}
       </TabPanel>
     </Box>

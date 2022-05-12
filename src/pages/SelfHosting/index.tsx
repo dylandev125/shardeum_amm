@@ -87,7 +87,7 @@ const Link = styled.a`
   font-size: 14px;
   line-height: 24px;
   text-align: left;
-  color: #a80084;
+  color: #000000;
   text-decoration: none;
 `;
 const StyledDivider = styled.div`

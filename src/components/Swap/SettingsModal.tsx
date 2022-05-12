@@ -122,7 +122,7 @@ const GasItemCont = styled.div<{ checked: boolean }>`
   ${({ checked }) => {
     if (checked) {
       return `
-        background: #A8008410;
+        background: #00000010;
         `;
     }
     return `
@@ -286,7 +286,7 @@ const Percentages = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid #a80084;
+  border: 1px solid #000000;
   border-radius: 4px;
   width: fit-content;
 `;
@@ -300,8 +300,8 @@ const Percentage = styled.div`
   width: 75px;
   height: 40px;
   text-transform: uppercase;
-  color: #a80084;
-  border-right: 1px solid #a80084;
+  color: #000000;
+  border-right: 1px solid #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -467,11 +467,11 @@ export default function SettingsModal() {
                     <Percentage>
                       <Input
                         type="number"
-                        style={{ textAlign: "center", color: "#A80084" }}
+                        style={{ textAlign: "center", color: "#000000" }}
                       />
                     </Percentage>
                   </Percentages>
-                  <InputLabel style={{ color: "#A80084" }}>
+                  <InputLabel style={{ color: "#000000" }}>
                     Your transaction may be frontrun
                   </InputLabel>
                 </ToleranceCont>
@@ -482,7 +482,7 @@ export default function SettingsModal() {
                     <Input
                       type="number"
                       style={{
-                        color: "#A80084",
+                        color: "#000000",
                         height: "30px",
                       }}
                     />

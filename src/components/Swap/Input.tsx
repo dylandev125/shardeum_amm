@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import ethImg from "../../assets/images/eth.svg";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+
 const TokenImg = styled.img`
   width: 30px;
   height: 30px;
@@ -26,7 +27,7 @@ const Label = styled.h4`
   font-weight: 400;
   font-size: 12px;
   line-height: 12px;
-  color: #a80084;
+  color: #000000;
   position: absolute;
   top: -18px;
   roght: 0px;

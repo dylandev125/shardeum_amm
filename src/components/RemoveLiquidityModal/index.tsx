@@ -115,7 +115,7 @@ const RecieveLink = styled.div`
   font-size: 14px;
   line-height: 17px;
   text-decoration-line: underline;
-  color: #a80084;
+  color: #000000;
   cursor: pointer;
 `;
 const PriceValue = styled.div`
@@ -233,7 +233,7 @@ const RemoveLiquidityModal = () => {
                     aria-label="Small"
                     valueLabelDisplay="off"
                     onChange={() => handleSliderChange}
-                    style={{ color: "#A80084" }}
+                    style={{ color: "#000000" }}
                   />
                 </SliderContentDiv>
                 <SliderContentButtons>
@@ -241,7 +241,7 @@ const RemoveLiquidityModal = () => {
                     onClick={() => handleSliderButtonClick(25)}
                     style={
                       sliderValue === 25
-                        ? { color: "#fff", backgroundColor: "#A80084" }
+                        ? { color: "#fff", backgroundColor: "#000000" }
                         : { color: "#CFCFCF" }
                     }
                   >
@@ -251,7 +251,7 @@ const RemoveLiquidityModal = () => {
                     onClick={() => handleSliderButtonClick(50)}
                     style={
                       sliderValue === 50
-                        ? { color: "#fff", backgroundColor: "#A80084" }
+                        ? { color: "#fff", backgroundColor: "#000000" }
                         : { color: "#CFCFCF" }
                     }
                   >
@@ -261,7 +261,7 @@ const RemoveLiquidityModal = () => {
                     onClick={() => handleSliderButtonClick(75)}
                     style={
                       sliderValue === 75
-                        ? { color: "#fff", backgroundColor: "#A80084" }
+                        ? { color: "#fff", backgroundColor: "#000000" }
                         : { color: "#CFCFCF" }
                     }
                   >
@@ -271,7 +271,7 @@ const RemoveLiquidityModal = () => {
                     onClick={() => handleSliderButtonClick(100)}
                     style={
                       sliderValue === 100
-                        ? { color: "#fff", backgroundColor: "#A80084" }
+                        ? { color: "#fff", backgroundColor: "#000000" }
                         : { color: "#CFCFCF" }
                     }
                   >
@@ -325,7 +325,7 @@ const RemoveLiquidityModal = () => {
                   boxShadow: approve
                     ? "none"
                     : "4px 3px 14px 2px rgba(168, 0, 132, 0.19)",
-                  background: approve ? "white" : "#a80084",
+                  background: approve ? "white" : "#000000",
                   color: approve ? "#00C853" : "white",
                   border: approve ? "1px solid #00C853" : "",
                 }}

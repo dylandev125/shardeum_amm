@@ -95,8 +95,8 @@ const ManageTokenListBtn = styled.button`
   height: 55px;
   border: none;
   color: #ffffff;
-  background: #a80084;
-  box-shadow: 4px 3px 14px 2px rgba(168, 0, 132, 0.19);
+  background: #000000;
+  box-shadow: 4px 3px 14px 2px rgba(0, 0, 0, 0.18);
   border-radius: 10px;
   font-family: "Inter", sans-serif;
   font-style: normal;

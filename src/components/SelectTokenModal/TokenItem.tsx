@@ -3,6 +3,19 @@ import { title } from "process";
 import React from "react";
 import styled from "styled-components";
 
+const TokenWrapper = styled.div`
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ffffff;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  padding-top: 20px;
+`;
+
 const TokenDetails = styled.div``;
 const Amount = styled.div`
   font-family: "Inter", sans-serif;
@@ -15,16 +28,9 @@ const Amount = styled.div`
   text-align: center;
   text-transform: uppercase;
 
-  color: #a80084;
+  color: #000000;
 `;
-const TokenWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e0e0e0;
-`;
+
 const TokenDiscription = styled.p`
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -51,7 +57,7 @@ const TokenTitle = styled.h1`
   line-height: 19px;
   text-transform: uppercase;
 
-  color: #a80084;
+  color: #000000;
 `;
 
 interface Props {

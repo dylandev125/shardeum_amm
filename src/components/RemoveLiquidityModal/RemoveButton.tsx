@@ -14,7 +14,7 @@ import MiniSnackBar from "../Snackbar";
 const RemoveBtn = styled.button`
   width: 50%;
   height: 55px;
-  background: #a80084;
+  background: #000000;
   border-radius: 10px;
   font-family: "Inter";
   font-style: normal;
@@ -69,8 +69,8 @@ const SupplyBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #a80084;
-  box-shadow: 0px 7px 18px -2px rgba(103, 58, 183, 0.56);
+  background: #000000;
+  box-shadow: 4px 3px 14px 2px rgba(0, 0, 0, 0.18);
   border-radius: 10px;
   border: none;
   font-family: "Inter";
@@ -140,7 +140,7 @@ const RatesValue = styled.div`
   font-weight: 700;
   font-size: 14px;
   line-height: 24px;
-  color: #a80084;
+  color: #000000;
 `;
 const RatesLabel = styled.div`
   font-family: "Inter";
@@ -185,12 +185,12 @@ const ViewLink = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: #a80084;
+  color: #000000;
   text-decoration: none;
 `;
 const TokenButton = styled.button`
   width: 100%;
-  border: 1px solid #a80084;
+  border: 1px solid #000000;
   border-radius: 10px;
   height: 55px;
   display: flex;
@@ -201,7 +201,7 @@ const TokenButton = styled.button`
   font-weight: 600;
   font-size: 15px;
   line-height: 26px;
-  color: #a80084;
+  color: #000000;
   background: white;
   margin-top: 30px;
   gap: 10px;

@@ -1,7 +1,6 @@
 import React from "react";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import styled from "styled-components";
-
 interface Props {
   image: string;
   id: number;
@@ -52,6 +51,7 @@ function NetworkItem({ id, image, text, choosen, setChoosen, type }: Props) {
     <Wrapper onClick={() => setChoosen && setChoosen(id)}>
       <Image src={image} alt={text} />
       <Text>{text}</Text>
+    
       {choosen === id && type === "network" ? <StyledCheclIcon /> : null}
     </Wrapper>
   );

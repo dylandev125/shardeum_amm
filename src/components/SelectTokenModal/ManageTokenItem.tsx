@@ -13,7 +13,7 @@ const Wrapper = styled.div<{ checked: boolean }>`
   ${({ checked }) => {
     if (checked) {
       return `
-        background: #A8008410;
+        background: #00000010;
         `;
     }
     return `

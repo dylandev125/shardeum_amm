@@ -33,7 +33,7 @@ const Label = styled.h4`
   font-weight: 400;
   font-size: 12px;
   line-height: 12px;
-  color: #a80084;
+  color: #000000;
   position: absolute;
   top: -18px;
   left: 0px;

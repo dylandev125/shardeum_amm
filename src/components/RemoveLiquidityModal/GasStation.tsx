@@ -19,7 +19,7 @@ const useStyle = makeStyles((theme) =>
   createStyles({
     switch: {
       "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-        backgroundColor: "#A80084",
+        backgroundColor: "#000000",
       },
     },
   })
@@ -33,7 +33,7 @@ const GasStation = () => {
       <GasWrapper>
         <LocalGasStationIcon
           style={{
-            color: gasSwitch ? "#A80084" : "#616161",
+            color: gasSwitch ? "#000000" : "#616161",
             fontWeight: 800,
             marginRight: "0.5rem",
           }}
@@ -48,7 +48,7 @@ const GasStation = () => {
                     setGasSwitch(event.target.checked);
                   }}
                   className={classes.switch}
-                  style={{ color: gasSwitch ? "#A80084" : "#616161" }}
+                  style={{ color: gasSwitch ? "#000000" : "#616161" }}
                 />
               }
               label={gasSwitch ? "YES" : "NO"}

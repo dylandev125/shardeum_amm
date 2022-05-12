@@ -109,8 +109,8 @@ const DetailButtonsDiv = styled.div`
 const AddButton = styled.div`
   width: 280px;
   height: 55px;
-  background: #a80084;
-  box-shadow: 4px 3px 14px 2px rgba(168, 0, 132, 0.19);
+  background: #000000;
+  box-shadow: 1px 14px 54px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
@@ -125,7 +125,7 @@ const AddButton = styled.div`
 const RemoveButton = styled.div`
   width: 280px;
   height: 55px;
-  border: 1px solid #a80084;
+  border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 15px;
@@ -133,7 +133,7 @@ const RemoveButton = styled.div`
   line-height: 26px;
   font-family: "Inter";
   font-style: normal;
-  color: #a80084;
+  color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
