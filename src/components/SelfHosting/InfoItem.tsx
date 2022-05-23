@@ -11,16 +11,26 @@ interface InfoItemProps {
 }
 
 const ItemTitle = styled.div`
+  font-size: 16px;
   font-weight: 500;
-  font-size: 17px;
-  line-height: 21px;
+  line-height: 20px;
+  font-family: "Inter";
+  font-style: normal;
   color: #212121;
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 const ItemAmount = styled.div`
-  font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  font-weight: 700;
+  font-family: "Inter";
+  font-style: normal;
   color: #212121;
+  @media only screen and (max-width: 600px) {
+    font-size: 18px;
+  }
 `;
 
 export default function InfoItem({
@@ -33,23 +43,26 @@ export default function InfoItem({
   const InfoItemCont = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     flex-grow: 1;
-    height: 155px;
+    height: 140px;
     padding: 20px;
-    max-width: 25%;
+    max-width: 30%;
     flex: 25%;
     border-top: ${id === 4 || id === 5 || id === 6
       ? "1px solid #E0E0E0"
       : "none"};
     border-right: ${id === 3 || id === 6 ? "none" : "1px solid #E0E0E0"};
-    @media (max-width: 768px) {
-      max-width: 50%;
-      width: 50%;
+    @media only screen and (max-width: 600px) {
+      max-width: 90%;
+      width: 90%;
       border: none;
       border-bottom: ${id < 5 ? "1px solid #E0E0E0" : "none"};
-      height: 100px;
+      height: 80px;
+      align-items: start;
+      gap: 5px;
+      padding: 10px;
     }
   `;
 

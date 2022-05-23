@@ -26,8 +26,7 @@ export default function Trend({ up, trend }: TrendProps) {
   `;
   return (
     <TrendCont>
-      {up ? <CallMadeIcon /> : <CallReceivedIcon />}
-      {trend}
+      {up ? <CallMadeIcon /> : <CallReceivedIcon />} ${trend}
     </TrendCont>
   );
 }

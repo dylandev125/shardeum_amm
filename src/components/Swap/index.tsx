@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "@mui/material/Button";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Dialog from "../Dialog";
 import SettingsModal from "./SettingsModal";
 import SelectTokenModal from "../SelectTokenModal";
 
 const Wrapper = styled.div`
-  width: 90%;
+  width: 510px;
   border: 1px solid #e0e0e0;
   box-shadow: 1px 14px 54px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 const Header = styled.div`
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
+  padding-left: 30px;
+  padding-right: 30px;
   border-bottom: 1px solid #e0e0e0;
+  @media only screen and (max-width: 600px) {
+    height: 60px;
+  }
 `;
 const Title = styled.h1`
   font-family: "Inter", sans-serif;
@@ -33,11 +39,14 @@ const Title = styled.h1`
 `;
 const Body = styled.div`
   padding: 30px 30px;
+  @media only screen and (max-width: 600px) {
+    padding: 20px 20px;
+  }
 `;
 const SwapWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5rem;
   position: relative;
 `;
 const SwapBtnDiv = styled.div`
@@ -60,25 +69,38 @@ const SwapArrow = styled.div`
   cursor: pointer;
 `;
 const SwapCard = styled.div`
+  width: 100%;
   height: 100px;
   background: #f7f8fa;
   border-radius: 20px;
   cursor: pointer;
+  @media only screen and (max-width: 600px) {
+    height: 80px;
+  }
 `;
 const InputDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: start;
   padding: 15px;
+  border-radius: 20px;
+  @media only screen and (max-width: 600px) {
+    padding: 0.5rem;
+  }
 `;
 const InputValue = styled.input`
+  width: 70%;
   border: none;
   font-size: 28px;
   color: rgb(0, 0, 0);
   background: transparent;
   outline: none;
-  font-family: "Inter custom", sans-serif;
   position: relative;
+  font-family: Inter;
+  @media only screen and (max-width: 600px) {
+    width: 50%;
+    font-size: 20px;
+  }
 `;
 const BalanceDiv = styled.div`
   display: flex;
@@ -126,6 +148,10 @@ const ConnectWalletBtn = styled.button`
   text-align: center;
   text-transform: capitalize;
   margin-top: 20px;
+  @media only screen and (max-width: 600px) {
+    height: 45px;
+    font-size: 14px;
+  }
 `;
 
 function Swap() {
@@ -230,6 +256,7 @@ function Swap() {
             </>
           )}
         </SwapWrapper>
+
         {isWalletConnected ? (
           <>
             <Dialog

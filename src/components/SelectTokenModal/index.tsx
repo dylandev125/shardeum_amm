@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
-import { Divider } from "@mui/material";
+// import { Divider } from "@mui/material";
 import TokenItem from "./TokenItem";
 import ManageToken from "./ManageToken";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -114,6 +114,10 @@ height 360px;
   ::-webkit-scrollbar {
     display: none;
   }
+  @media (max-width: 900px) {
+  margin-top:1rem;
+    height: 230px;
+  }
 `;
 
 const StyledCloseIcon = styled(CloseIcon)`
@@ -149,15 +153,20 @@ const TokenButton = styled(Button)`
     :hover {
       background: #ced0d9 !important;
     }
+    @media only screen and (max-width: 600px) {
+      width: 30%;
+      height: 35px;
+      font-size: 14px;
+    }
   }
 `;
-const StyledDivider = styled(Divider)`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-`;
+// const StyledDivider = styled(Divider)`
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 1px;
+// `;
 // interface Props {
 //   children: React.ReactNode;
 // }
@@ -182,6 +191,7 @@ export default function SelectTokenModal() {
         ETH
         <KeyboardArrowDownIcon style={{ width: "23px", height: "23px" }} />
       </TokenButton>
+
       <Modal
         open={open}
         onClose={handleClose}

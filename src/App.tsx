@@ -1,19 +1,22 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
-import TabPanel from "./components/TabPanel";
+import TabHeader from "./components/TabPanel/TabHeader";
+import SelfHosting from "./pages/SelfHosting";
 
 const AppWrapper = styled.div`
-  margin: 0;
-  @media (max-width: 900px) {
-    width: 100%;
-    overflow-x: hidden;
+  width: 100%;
+`;
+const Content = styled.div`
+  padding-left: 100px;
+  padding-right: 100px;
+  @media only screen and (max-width: 600px) {
+    padding: 0px 10px;
   }
 `;
 
 const GlobalStyles = createGlobalStyle`
 *{
-
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
@@ -40,7 +43,13 @@ function App() {
       <GlobalStyles />
       <AppWrapper>
         <Header />
-        <TabPanel />
+        <Content>
+          <TabHeader
+            title="Swap"
+            text="Trade tokens in an instant with UniFarm for verified tokens and low fee"
+          />
+          <SelfHosting />
+        </Content>
       </AppWrapper>
     </>
   );

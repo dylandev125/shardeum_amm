@@ -1,42 +1,46 @@
 import React from "react";
-import Style from "styled-components";
+import styled from "styled-components";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
-const Container = Style.div`
-display:flex;
-justify-content:space-between;
-position:relative;
-padding:2rem;
-width:500px;
-
-@media (max-width:900px){
-  width:90%;
-}
+const Container = styled.div`
+  width: 510px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
-const WrapperContent = Style.div`
-display:flex;
-flex-direction:column;
-margin-right:-15px;
-
-line-height:27px;
+const WrapperContent = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
-const WrapperTitle = Style.span`
-text-align:left;
-color:black;
+const WrapperTitle = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
 `;
-const WrapperValue = Style.span`
-text-align:right;
-color:black;
+const WrapperValue = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+  text-align: right;
 `;
-const RouteCont = Style.div`
-display:flex;
-align-items:center;
-gap:5px;
+const RouteCont = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
-const RoutesCont = Style.div`
-display:flex;
-align-items:center;
-gap:15px;
+const RoutesCont = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
 
 interface IsWrapper {

@@ -4,11 +4,11 @@ import Modal from "@mui/material/Modal";
 import styled from "styled-components";
 import { Divider } from "@mui/material";
 import ethImg from "../../assets/images/eth.svg";
-import TokenItem from "./TokenItem";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ManageTokenItem from "./ManageTokenItem";
+
 const StyledBox = styled(Box)`
   position: absolute;
   top: 50%;
@@ -19,7 +19,6 @@ const StyledBox = styled(Box)`
   background-color: #ffffff;
   border: none;
   box-shadow: 24px;
-
   @media (max-width: 900px) {
     width: 95%;
   }
