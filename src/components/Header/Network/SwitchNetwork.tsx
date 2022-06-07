@@ -1,16 +1,16 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
 import styled from "styled-components";
-import CloseIcon from "@mui/icons-material/Close";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
 import { Divider } from "@mui/material";
-import NetworkItem from "./NetworkItem";
-import ETH from "../../assets/Tokens/ETH.png";
-import aveLogo from "../../assets/images/ave.png";
-import bnLogo from "../../assets/images/bn.svg";
-import polygonLogo from "../../assets/images/polygon.svg";
+import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import NetworkItem from "./NetworkItem";
+import ETH from "../../../assets/Tokens/ETH.png";
+import aveLogo from "../../../assets/images/ave.png";
+import bnLogo from "../../../assets/images/bn.svg";
+import polygonLogo from "../../../assets/images/polygon.svg";
 
 const Wrapper = styled.div``;
 const ConnectWalletButton = styled(Button)`

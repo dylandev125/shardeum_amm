@@ -19,14 +19,16 @@ export default function Trend({ up, trend }: TrendProps) {
     font-size: 14px;
     line-height: 24px;
     color: ${up ? "#00C853" : "#C62828"};
-    @media (max-width: 768px) {
-      font-size: 14px;
-      flex-direction: row;
-    }
   `;
+
   return (
     <TrendCont>
-      {up ? <CallMadeIcon /> : <CallReceivedIcon />} ${trend}
+      {up ? (
+        <CallMadeIcon style={{ width: "16px", height: "16px" }} />
+      ) : (
+        <CallReceivedIcon style={{ width: "16px", height: "16px" }} />
+      )}
+      ${trend}
     </TrendCont>
   );
 }

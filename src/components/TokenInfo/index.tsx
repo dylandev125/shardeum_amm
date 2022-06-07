@@ -73,7 +73,7 @@ const Wrapper = styled.div`
   color: #616161;
 `;
 
-function TokenInfo() {
+const TokenInfo = () => {
   return (
     <TokenCont>
       <TokenImage src={tokenImg} alt="tether" />
@@ -89,6 +89,6 @@ function TokenInfo() {
       </TokenInfoDiv>
     </TokenCont>
   );
-}
+};
 
 export default TokenInfo;

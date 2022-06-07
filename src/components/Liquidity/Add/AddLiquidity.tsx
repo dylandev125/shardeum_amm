@@ -56,6 +56,7 @@ const Title = styled.div`
   color: #212121;
 `;
 const MainDiv = styled.div`
+  padding-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
   @media only screen and (max-width: 600px) {
@@ -142,9 +143,6 @@ interface Props {
 }
 
 const AddLiquidity = ({ handleBack }: Props) => {
-  const [firstInput, setFirstInput] = React.useState("");
-  const [secondInput, setSecondInput] = React.useState("");
-  const [swap, setSwap] = React.useState(true);
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const handleOpen = () => setOpen(true);

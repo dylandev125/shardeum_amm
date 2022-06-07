@@ -1,26 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import ethImg from "../../assets/images/eth.svg";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-const TokenImg = styled.img`
-  width: 30px;
-  height: 30px;
-`;
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   position: relative;
   border-bottom: 1px solid #e0e0e0;
-  margin-top: 30px;
   padding-bottom: 5px;
+  margin-top: 30px;
   cursor: pointer;
 `;
-
 const Label = styled.h4`
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -69,6 +60,7 @@ const Amount = styled.span`
   color: #616161;
   text-decoration: none;
 `;
+
 function AmountInput() {
   return (
     <div>
@@ -76,7 +68,6 @@ function AmountInput() {
         <Label>
           Balance <Amount>: 0 (-$0.00)</Amount>
         </Label>
-
         <StyledInput placeholder="Value" type="number" />
         <LabelDown>~$0</LabelDown>
       </Wrapper>

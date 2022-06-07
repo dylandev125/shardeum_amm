@@ -284,17 +284,19 @@ const RemoveButton = () => {
                       <LoadingDiv>
                         <img
                           src={warningImg}
+                          alt="Token"
                           style={{ width: "60px", height: "55px" }}
                         />
                         <SubmitText>Transaction submitted</SubmitText>
                         <ViewLink>
-                          <a href="#" style={{ textDecoration: "none" }}>
+                          <a href="/#" style={{ textDecoration: "none" }}>
                             View on Explorer
                           </a>
                         </ViewLink>
                         <TokenButton>
                           <img
                             src={metamask}
+                            alt="Token"
                             style={{ width: "20px", height: "20px" }}
                           />
                           Add LP Token in Metamask
@@ -312,6 +314,7 @@ const RemoveButton = () => {
                           <TokenDiv>
                             <img
                               src={THT}
+                              alt="Token"
                               style={{ width: "30px", height: "30px" }}
                             />
                             <Recieve>USDT</Recieve>
@@ -320,6 +323,7 @@ const RemoveButton = () => {
                           <TokenDiv>
                             <img
                               src={ETH}
+                              alt="Token"
                               style={{ width: "30px", height: "30px" }}
                             />
                             <Recieve>ETH Pool Token</Recieve>

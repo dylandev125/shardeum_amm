@@ -11,7 +11,6 @@ import Tabs from "@mui/material/Tabs";
 import CloseIcon from "@mui/icons-material/Close";
 import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import Tab from "@mui/material/Tab";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Switch from "@mui/material/Switch";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -82,43 +81,10 @@ const Description = styled.p`
   line-height: 24px;
   color: #616161;
 `;
-
-const StyledIcon = styled(ArrowBackIcon)`
-  cursor: pointer;
-  color: #000;
-  padding: 0.5rem;
-
-  :hover {
-    background: #e0e0e070;
-    padding: 0.5rem;
-    opacity: 0.8;
-    border-radius: 50%;
-  }
-`;
-const SearchInput = styled.input`
-  border: none;
-  border-bottom: 0.5px solid #616161;
-  width: 100%;
-  color: #616161;
-  padding: 0.5rem 0px;
-`;
-const Tokens = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height 220px;
-  overflow-y: scroll;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-`;
 const StyledCloseIcon = styled(CloseIcon)`
   cursor: pointer;
   color: #000;
   padding: 0.5rem;
-
   :hover {
     background: #e0e0e070;
     padding: 0.5rem;
@@ -126,7 +92,6 @@ const StyledCloseIcon = styled(CloseIcon)`
     border-radius: 50%;
   }
 `;
-
 const GasItemCont = styled.div<{ checked: boolean }>`
   display: flex;
   flex-direction: row;
@@ -333,16 +298,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SettingsModal() {
   const classes = useStyles();
-
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const [value, setValue] = React.useState(0);
   const [checked, setChecked] = React.useState(2);
   const [gasOptions, setGasOptions] = React.useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
   return (
     <div>
       <IconButton onClick={handleOpen}>

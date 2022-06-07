@@ -1,14 +1,13 @@
 import React from "react";
 import logo from "../../assets/Tokens/Logo.png";
 import styled from "styled-components";
-import ConnectWallet from "../NetworkPopup/ConnectWallet";
-import SwitchNetwork from "../NetworkPopup/SwitchNetwork";
+import ConnectWallet from "./Network/ConnectWallet";
+import SwitchNetwork from "./Network/SwitchNetwork";
 
 const Wrapper = styled.div`
   width: 100%;
   background-color: rgba(46, 46, 46, 0.07);
 `;
-
 const HeaderWrapper = styled.div`
   height: 70px;
   display: flex;
@@ -31,7 +30,7 @@ const HeaderItems = styled.div`
   }
 `;
 
-function Header() {
+const Header = () => {
   return (
     <Wrapper>
       <HeaderWrapper>
@@ -43,6 +42,6 @@ function Header() {
       </HeaderWrapper>
     </Wrapper>
   );
-}
+};
 
 export default Header;

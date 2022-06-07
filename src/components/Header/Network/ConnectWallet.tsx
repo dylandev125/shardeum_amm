@@ -1,21 +1,21 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
 import styled from "styled-components";
-import CloseIcon from "@mui/icons-material/Close";
+import Box from "@mui/material/Box";
 import { Divider } from "@mui/material";
-import NetworkItem from "./NetworkItem";
-import ethLogo from "../../assets/images/eth.svg";
-import aveLogo from "../../assets/images/ave.png";
-import bnLogo from "../../assets/images/bn.svg";
-import polygonLogo from "../../assets/images/polygon.svg";
-import buttonIcon from "../../assets/images/buttonicon.png";
+import Modal from "@mui/material/Modal";
+import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
-import metaLogo from "../../assets/images/meta.svg";
-import walletLogo from "../../assets/images/wallet.svg";
-import bitKeepLogo from "../../assets/images/bitkeep.png";
+import NetworkItem from "./NetworkItem";
+import ethLogo from "../../../assets/images/eth.svg";
+import aveLogo from "../../../assets/images/ave.png";
+import bnLogo from "../../../assets/images/bn.svg";
+import polygonLogo from "../../../assets/images/polygon.svg";
+import buttonIcon from "../../../assets/images/buttonicon.png";
+import metaLogo from "../../../assets/images/meta.svg";
+import walletLogo from "../../../assets/images/wallet.svg";
+import bitKeepLogo from "../../../assets/images/bitkeep.png";
 
 const Wrapper = styled.div``;
 const ConnectedWalletButton = styled(Button)`
@@ -254,7 +254,6 @@ const DummyWalletData = [
 
 function ConnectWallet() {
   const [isConnected, setIsConnected] = React.useState(false);
-
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -318,7 +317,7 @@ function ConnectWallet() {
             </Header>
             <Body>
               <TitleCont>
-                <Number>1 </Number>
+                <Number>1</Number>
                 <BodyTitle>Choose Network</BodyTitle>
               </TitleCont>
               <Networks>

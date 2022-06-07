@@ -4,9 +4,9 @@ import Grid from "@mui/material/Grid";
 
 import TokenInfo from "../../components/TokenInfo";
 import InfoItem from "../../components/TokenInfo/InfoItem";
-import AboutInfo from "../../components/AboutInfo";
-import SwapModal from "../../components/SwapModal";
-import SwapInfo from "../../components/SwapModal/SwapInfo";
+import AboutInfo from "../../components/AboutToken";
+import SwapModal from "../../components/SwapModal/SwapModal";
+import SwapInfo from "../../components/SwapModal/SwapInfo/SwapInfo";
 
 import ethImg from "../../assets/Tokens/ETH.png";
 import polygonImg from "../../assets/Tokens/BTC.png";

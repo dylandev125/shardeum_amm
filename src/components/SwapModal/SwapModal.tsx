@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Dialog from "../Dialog";
-import SettingsModal from "./SettingsModal";
+import SettingsModal from "./SettingsModal/SettingsModal";
 import SelectTokenModal from "../SelectTokenModal";
 
 const Wrapper = styled.div`
@@ -154,7 +154,7 @@ const ConnectWalletBtn = styled.button`
   }
 `;
 
-function Swap() {
+function SwapModal() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [approved, setApproved] = useState(false);
   const [swap, setSwap] = useState(true);
@@ -275,4 +275,4 @@ function Swap() {
   );
 }
 
-export default Swap;
+export default SwapModal;

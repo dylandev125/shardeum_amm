@@ -163,7 +163,6 @@ const ConnectWalletBtn = styled.button`
 interface Props {
   transaction: "submitted" | "added" | "successful";
   approved: boolean;
-
   setApproved: (approved: boolean) => void;
 }
 
@@ -171,7 +170,7 @@ export default function Dialog({ transaction, approved, setApproved }: Props) {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
   const [checkbalance, setCheckbalance] = React.useState(false);
-
+  console.log(setCheckbalance);
   return (
     <>
       {transaction === "submitted" && (

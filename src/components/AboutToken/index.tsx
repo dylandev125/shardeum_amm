@@ -46,7 +46,7 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
-const index = () => {
+const AboutToken = () => {
   return (
     <>
       <AboutCont>
@@ -70,4 +70,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default AboutToken;

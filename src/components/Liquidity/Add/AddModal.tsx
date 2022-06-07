@@ -271,7 +271,6 @@ interface Props {
 
 const AddModal = ({ handleClose, handleSuccess }: Props) => {
   const [step, setStep] = useState(0);
-  const [open, setOpen] = useState(false);
 
   const handleWait = () => {
     setStep(1);
@@ -287,7 +286,7 @@ const AddModal = ({ handleClose, handleSuccess }: Props) => {
   return (
     <>
       <StyledBox>
-        {step == 0 ? (
+        {step === 0 ? (
           <>
             <BoxTitleDiv>
               <BoxTitle>Confirm Supply</BoxTitle>
@@ -322,7 +321,7 @@ const AddModal = ({ handleClose, handleSuccess }: Props) => {
               <ConfirmBtn onClick={handleWait}>Confirm Supply</ConfirmBtn>
             </BoxDetails>
           </>
-        ) : step == 1 ? (
+        ) : step === 1 ? (
           <>
             <WaitingDiv>
               <ClipLoader size={20} color={"black"} />
@@ -330,7 +329,7 @@ const AddModal = ({ handleClose, handleSuccess }: Props) => {
               <WaitText>Supplying 19.32 ETH for 179.20 USDT</WaitText>
             </WaitingDiv>
           </>
-        ) : step == 2 ? (
+        ) : step === 2 ? (
           <>
             <BoxTitleDiv>
               <BoxTitle>Transaction Submitted</BoxTitle>
@@ -346,7 +345,7 @@ const AddModal = ({ handleClose, handleSuccess }: Props) => {
               </AddMetamask>
             </SubmitDetails>
           </>
-        ) : step == 3 ? (
+        ) : step === 3 ? (
           <>
             <BoxTitleDiv>
               <BoxTitle>Transaction Submitted</BoxTitle>
