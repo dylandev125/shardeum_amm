@@ -9,6 +9,7 @@ const Container = styled.div`
   margin-top: 30px;
   @media (max-width: 900px) {
     width: 100%;
+    padding-bottom: 1rem;
   }
 `;
 const WrapperContent = styled.div`

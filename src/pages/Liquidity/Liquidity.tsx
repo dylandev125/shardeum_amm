@@ -42,7 +42,7 @@ const LiquidityTitleText = styled.div`
 const LiquidityArrowDiv = styled.div`
   width: 55px;
   height: 55px;
-  background: #fbf8ff;
+  background: #f1f1f1;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -174,7 +174,7 @@ const Liquidity = () => {
                       style={{
                         width: "25px ",
                         height: "25px",
-                        color: "#673AB7",
+                        color: "#000000",
                       }}
                     />
                   ) : (
@@ -182,7 +182,7 @@ const Liquidity = () => {
                       style={{
                         width: "25px ",
                         height: "25px",
-                        color: "#673AB7",
+                        color: "#000000",
                       }}
                     />
                   )}

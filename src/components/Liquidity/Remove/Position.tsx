@@ -3,7 +3,25 @@ import styled from "styled-components";
 import THT from "../../../assets/Tokens/THT.png";
 import ETH from "../../../assets/Tokens/ETH.png";
 
-const PoolText = styled.div`
+const PositionDiv = styled.div`
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+`;
+const PoolWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+`;
+const PoolDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+`;
+const PoolText = styled.span`
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -14,57 +32,45 @@ const TokenText = styled.span`
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 24px;
-  margin-left: 20px;
 `;
-
+const PoolIconDiv = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+const PoolIcon = styled.img`
+  width: 25px;
+  height: 25px;
+`;
 const Position = () => {
   return (
     <div>
-      <div style={{ marginTop: "20px", padding: "20px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <PoolText>Your Position</PoolText>
-          <PoolText>0.665651548451544</PoolText>
-        </div>
-      </div>
-      <div
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          paddingBottom: "30px",
-          paddingTop: "20px",
-        }}
-      >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <PoolText>0.01545154%</PoolText>
-            <div style={{ marginTop: "5px" }}>Your Pool Share</div>
-          </div>
-          <div>
-            <PoolText>5.35545451848</PoolText>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src={THT}
-                alt="THT"
-                style={{ width: "31px", height: "31px", marginTop: "5px" }}
-              />
-              <TokenText>USDT</TokenText>
-            </div>
-          </div>
-          <div>
-            <PoolText>5.35545451848</PoolText>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src={ETH}
-                alt="ETH"
-                style={{ width: "31px", height: "31px", marginTop: "5px" }}
-              />
-              <TokenText>ETH</TokenText>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PositionDiv>
+        <PoolText>Your Position</PoolText>
+        <PoolText>0.665651548451544</PoolText>
+      </PositionDiv>
+      <PoolWrapper>
+        <PoolDiv>
+          <PoolText>0.01545154%</PoolText>
+          <TokenText>Your Pool Share</TokenText>
+        </PoolDiv>
+        <PoolDiv>
+          <PoolText>5.35545451848</PoolText>
+          <PoolIconDiv>
+            <PoolIcon src={THT} alt="THT" />
+            <TokenText>USDT</TokenText>
+          </PoolIconDiv>
+        </PoolDiv>
+        <PoolDiv>
+          <PoolText>5.35545451848</PoolText>
+          <PoolIconDiv>
+            <PoolIcon src={ETH} alt="ETH" />
+            <TokenText>ETH</TokenText>
+          </PoolIconDiv>
+        </PoolDiv>
+      </PoolWrapper>
     </div>
   );
 };

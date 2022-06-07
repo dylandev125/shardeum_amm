@@ -40,7 +40,7 @@ const Title = styled.h1`
 const Body = styled.div`
   padding: 30px 30px;
   @media only screen and (max-width: 600px) {
-    padding: 20px 20px;
+    padding: 1rem;
   }
 `;
 const SwapWrapper = styled.div`

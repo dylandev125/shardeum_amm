@@ -11,9 +11,6 @@ import IconButton from "@mui/material/IconButton";
 const GasWrapper = styled.div`
   display: flex;
   align-items: center;
-  @media only screen and (max-width: 600px) {
-    padding-left: 30px;
-  }
 `;
 
 const useStyle = makeStyles((theme) =>

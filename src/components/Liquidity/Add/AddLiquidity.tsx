@@ -37,8 +37,8 @@ const CardTitle = styled.div`
   padding-right: 1rem;
   @media only screen and (max-width: 600px) {
     height: 80px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 `;
 const TitleDiv = styled.div`
@@ -54,6 +54,9 @@ const Title = styled.div`
   font-size: 20px;
   line-height: 24px;
   color: #212121;
+  @media only screen and (max-width: 600px) {
+    font-size: 18px;
+  }
 `;
 const MainDiv = styled.div`
   padding-top: 20px;
@@ -79,8 +82,11 @@ const StyledAddBtn = styled.div`
   box-shadow: 1px 14px 54px rgba(0, 0, 0, 0.08);
   border-radius: 50%;
   margin: 0 auto;
-  magrin-top: 20px;
+  margin-top: 20px;
   cursor: pointer;
+  @media only screen and (max-width: 600px) {
+    margin-top: 0.5rem;
+  }
 `;
 const PoolDiv = styled.div`
   margin-top: 30px;

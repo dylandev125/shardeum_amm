@@ -45,10 +45,8 @@ const CardTitle = styled.div`
   padding-right: 1rem;
   border-bottom: 1px solid #e0e0e0;
   @media only screen and (max-width: 600px) {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: start;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 `;
 const TitleDiv = styled.div`
@@ -67,10 +65,10 @@ const TitleText = styled.span`
 const MainDiv = styled.div`
   padding: 30px;
   @media only screen and (max-width: 600px) {
-    padding: 10px;
+    padding: 1rem;
   }
 `;
-const AmountDiv = styled.div`
+const AmountWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   @media only screen and (max-width: 600px) {
@@ -189,6 +187,11 @@ const TokenIcon = styled.img`
   width: 55px;
   height: 55px;
 `;
+const AmountDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`;
 
 const useStyles = makeStyles((theme) => ({
   Root: {
@@ -211,13 +214,7 @@ interface Props {
 
 const RemoveLiquidity = ({ handleBack }: Props) => {
   const classes = useStyles();
-  const [sliderValue, setSliderValue] = useState<number>(25);
-  const handleSliderChange = (event: Event, newValue: number) => {
-    setSliderValue(newValue);
-  };
-  const handleSliderButtonClick = (value: number) => {
-    setSliderValue(value);
-  };
+
   const [Isloading, setLoding] = React.useState(false);
   const [approve, setApprove] = useState(false);
 
@@ -228,7 +225,14 @@ const RemoveLiquidity = ({ handleBack }: Props) => {
       setApprove(true);
     }, 1500);
   };
+  const [sliderValue, setSliderValue] = useState<number>(25);
 
+  const handleSliderChange = (event: Event, newValue: any) => {
+    setSliderValue(newValue);
+  };
+  const handleSliderButtonClick = (value: number) => {
+    setSliderValue(value);
+  };
   return (
     <>
       <Wrapper>
@@ -245,11 +249,11 @@ const RemoveLiquidity = ({ handleBack }: Props) => {
             <GasStation />
           </CardTitle>
           <MainDiv>
-            <AmountDiv>
-              <div>
+            <AmountWrapper>
+              <AmountDiv>
                 <PercentageAmount>Amount</PercentageAmount>
                 <PercentageValue>{sliderValue}%</PercentageValue>
-              </div>
+              </AmountDiv>
               <div>
                 <SliderContentDiv>
                   <Slider
@@ -257,7 +261,7 @@ const RemoveLiquidity = ({ handleBack }: Props) => {
                     value={sliderValue}
                     aria-label="Small"
                     valueLabelDisplay="off"
-                    onChange={() => handleSliderChange}
+                    onChange={handleSliderChange}
                     style={{ color: "#000000" }}
                   />
                 </SliderContentDiv>
@@ -304,7 +308,7 @@ const RemoveLiquidity = ({ handleBack }: Props) => {
                   </SliderContentButton>
                 </SliderContentButtons>
               </div>
-            </AmountDiv>
+            </AmountWrapper>
             <TokenDetails>
               <TokenDiv>
                 <TokenIcon src={THT} alt="Icon" />
@@ -333,9 +337,6 @@ const RemoveLiquidity = ({ handleBack }: Props) => {
                 style={{
                   textTransform: "none",
                   fontWeight: 600,
-                  boxShadow: approve
-                    ? "none"
-                    : "4px 3px 14px 2px rgba(168, 0, 132, 0.19)",
                   background: approve ? "white" : "#000000",
                   color: approve ? "#00C853" : "white",
                   border: approve ? "1px solid #00C853" : "",

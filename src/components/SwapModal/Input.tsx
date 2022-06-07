@@ -26,13 +26,14 @@ const Label = styled.h4`
 const LabelDown = styled.h4`
   font-family: "Roboto", sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 12px;
   line-height: 12px;
   color: #616161;
   position: absolute;
   bottom: -18px;
   roght: 0px;
+  text-decoration: underline;
 `;
 const StyledInput = styled.input`
   width: 100%;
@@ -69,7 +70,7 @@ function AmountInput() {
           Balance <Amount>: 0 (-$0.00)</Amount>
         </Label>
         <StyledInput placeholder="Value" type="number" />
-        <LabelDown>~$0</LabelDown>
+        <LabelDown>MAX</LabelDown>
       </Wrapper>
     </div>
   );
