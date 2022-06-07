@@ -3,13 +3,13 @@ import styled from "styled-components";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import CloseIcon from "@mui/icons-material/Close";
-import THT from "../../assets/Tokens/THT.png";
-import ETH from "../../assets/Tokens/ETH.png";
+import THT from "../../../assets/Tokens/THT.png";
+import ETH from "../../../assets/Tokens/ETH.png";
 import CircularProgress from "@mui/material/CircularProgress";
-import warningImg from "../../assets/images/warning.png";
-import metamask from "../../assets/images/metamask.png";
+import warningImg from "../../../assets/images/warning.png";
+import metamask from "../../../assets/images/metamask.png";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import MiniSnackBar from "../Snackbar";
+import MiniSnackBar from "../../Snackbar";
 
 const RemoveBtn = styled.button`
   width: 50%;

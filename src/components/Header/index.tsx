@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: rgba(46, 46, 46, 0.07);
 `;
+
 const HeaderWrapper = styled.div`
   height: 70px;
   display: flex;

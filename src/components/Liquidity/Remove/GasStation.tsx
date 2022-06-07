@@ -6,6 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import SettingsIcon from "@mui/icons-material/Settings";
+import IconButton from "@mui/material/IconButton";
 
 const GasWrapper = styled.div`
   display: flex;
@@ -55,7 +56,9 @@ const GasStation = () => {
             />
           </FormGroup>
         </div>
-        <SettingsIcon />
+        <IconButton>
+          <SettingsIcon style={{ color: "#000000" }} />
+        </IconButton>
       </GasWrapper>
     </>
   );

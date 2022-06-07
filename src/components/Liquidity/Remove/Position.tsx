@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import THT from "../../assets/Tokens/THT.png";
-import ETH from "../../assets/Tokens/ETH.png";
+import THT from "../../../assets/Tokens/THT.png";
+import ETH from "../../../assets/Tokens/ETH.png";
 
 const PoolText = styled.div`
   font-family: "Inter";

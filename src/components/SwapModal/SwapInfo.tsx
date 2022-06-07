@@ -51,7 +51,7 @@ interface IsWrapper {
   Save: any;
   Route: any;
 }
-const Wrapper = ({
+const SwapInfo = ({
   Recieved,
   Price,
   Network,
@@ -94,4 +94,4 @@ const Wrapper = ({
     </Container>
   );
 };
-export default Wrapper;
+export default SwapInfo;

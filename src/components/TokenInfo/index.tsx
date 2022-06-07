@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tokenImg from "../../assets/images/tokenImg.png";
-import Trend from "../SelfHosting/Trend";
+import Trend from "./Trend";
 
 const TokenCont = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const TokenImage = styled.img`
     height: 50px;
   }
 `;
-const TokenInfo = styled.div`
+const TokenInfoDiv = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -73,11 +73,11 @@ const Wrapper = styled.div`
   color: #616161;
 `;
 
-function Token() {
+function TokenInfo() {
   return (
     <TokenCont>
       <TokenImage src={tokenImg} alt="tether" />
-      <TokenInfo>
+      <TokenInfoDiv>
         <TokenTitle>Tether (USDT)</TokenTitle>
         <TokenValue>
           <TokenValuePrice>$ 1.1 USD</TokenValuePrice>
@@ -86,9 +86,9 @@ function Token() {
             Past 24hrs
           </Wrapper>
         </TokenValue>
-      </TokenInfo>
+      </TokenInfoDiv>
     </TokenCont>
   );
 }
 
-export default Token;
+export default TokenInfo;

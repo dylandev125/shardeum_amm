@@ -4,7 +4,8 @@ import BNB from "../../assets/Tokens/BNB.png";
 import ETH from "../../assets/Tokens/ETH.png";
 import KeyboardArrowDownSharpIcon from "@mui/icons-material/KeyboardArrowDownSharp";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import RemoveLiquidityModal from "../RemoveLiquidityModal";
+import RemoveLiquidity from "../../components/Liquidity/Remove/RemoveLiquidity";
+import AddLiquidity from "../../components/Liquidity/Add/AddLiquidity";
 
 interface LiquidityItemDetailsProps {
   display: boolean;
@@ -142,11 +143,21 @@ const RemoveButton = styled.div`
 const Liquidity = () => {
   const [showDetails, setShowDetails] = React.useState(false);
   const [isRemoveModalOpen, setIsRemoveModalOpen] = React.useState(false);
+  const [addliquidity, setAddliquidity] = React.useState(false);
+
+  const handleBack = () => {
+    setIsRemoveModalOpen(false);
+  };
+  const handleBack2 = () => {
+    setAddliquidity(false);
+  };
 
   return (
     <div>
       {isRemoveModalOpen ? (
-        <RemoveLiquidityModal />
+        <RemoveLiquidity handleBack={handleBack} />
+      ) : addliquidity ? (
+        <AddLiquidity handleBack={handleBack2} />
       ) : (
         <>
           <div>
@@ -205,7 +216,9 @@ const Liquidity = () => {
                   >
                     Remove
                   </RemoveButton>
-                  <AddButton>Add</AddButton>
+                  <AddButton onClick={() => setAddliquidity(true)}>
+                    Add
+                  </AddButton>
                 </DetailButtonsDiv>
               </LiquidityDetailsDiv>
             </LiquidityItemContentDiv>

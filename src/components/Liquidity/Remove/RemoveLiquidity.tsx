@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Slider from "@mui/material/Slider";
-import THT from "../../assets/Tokens/THT.png";
-import ETH from "../../assets/Tokens/ETH.png";
-import GasStation from "./GasStation";
-import Position from "./Position";
-import RemoveButton from "./RemoveButton";
-import ClipLoader from "react-spinners/ClipLoader";
 import Button from "@mui/material/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import IconButton from "@mui/material/IconButton";
+import ClipLoader from "react-spinners/ClipLoader";
+import ETH from "../../../assets/Tokens/ETH.png";
+import THT from "../../../assets/Tokens/THT.png";
+import Position from "./Position";
+import GasStation from "./GasStation";
+import RemoveButton from "./RemoveButton";
 
+const Wrapper = styled.div`
+  margin-top: 2rem;
+`;
 const CardDiv = styled.div`
   width: 520px;
   height: 600px;
@@ -35,11 +39,11 @@ const PositonDiv = styled.div`
 const CardTitle = styled.div`
   height: 90px;
   display: flex;
-  padding-left: 25px;
-  padding-right: 25px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  border-bottom: 1px solid #e0e0e0;
   @media only screen and (max-width: 600px) {
     display: flex;
     justify-content: center;
@@ -171,6 +175,20 @@ const PercentageValue = styled.div`
   line-height: 24px;
   color: #000000;
 `;
+const TokenDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+`;
+const TokenDiv = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const TokenIcon = styled.img`
+  width: 55px;
+  height: 55px;
+`;
 
 const useStyles = makeStyles((theme) => ({
   Root: {
@@ -187,7 +205,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RemoveLiquidityModal = () => {
+interface Props {
+  handleBack: () => void;
+}
+
+const RemoveLiquidity = ({ handleBack }: Props) => {
   const classes = useStyles();
   const [sliderValue, setSliderValue] = useState<number>(25);
   const handleSliderChange = (event: Event, newValue: number) => {
@@ -208,17 +230,20 @@ const RemoveLiquidityModal = () => {
   };
 
   return (
-    <div>
-      <div style={{ marginTop: "50px" }}>
+    <>
+      <Wrapper>
         <CardDiv>
           <CardTitle>
             <TitleDiv>
-              <ArrowBackIcon style={{ width: "25px", height: "25px" }} />
+              <IconButton onClick={handleBack}>
+                <ArrowBackIcon
+                  style={{ width: "25px", height: "25px", color: "#000000" }}
+                />
+              </IconButton>
               <TitleText>Remove Liquidity</TitleText>
             </TitleDiv>
             <GasStation />
           </CardTitle>
-          <div style={{ border: "1px solid #E0E0E0" }}></div>
           <MainDiv>
             <AmountDiv>
               <div>
@@ -280,35 +305,21 @@ const RemoveLiquidityModal = () => {
                 </SliderContentButtons>
               </div>
             </AmountDiv>
-            <div
-              style={{
-                marginTop: "25px",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img src={THT} alt="THT" />
+            <TokenDetails>
+              <TokenDiv>
+                <TokenIcon src={THT} alt="Icon" />
                 <TokenText>USDT</TokenText>
-              </div>
+              </TokenDiv>
               <TokenValue>10.00</TokenValue>
-            </div>
+            </TokenDetails>
             <hr style={{ border: "1px solid #E0E0E0", marginTop: "20px" }} />
-            <div
-              style={{
-                marginTop: "25px",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img src={ETH} alt="ETH" />
+            <TokenDetails>
+              <TokenDiv>
+                <TokenIcon src={ETH} alt="Icon" />
                 <TokenText>ETH</TokenText>
-              </div>
+              </TokenDiv>
               <TokenValue>0.002355</TokenValue>
-            </div>
+            </TokenDetails>
             <RecieveLink>Recieve ETH</RecieveLink>
             <PriceDiv>
               <PriceValue>Price : 1 ETH = 4221 USDT</PriceValue>
@@ -346,9 +357,9 @@ const RemoveLiquidityModal = () => {
         <PositonDiv>
           <Position />
         </PositonDiv>
-      </div>
-    </div>
+      </Wrapper>
+    </>
   );
 };
 
-export default RemoveLiquidityModal;
+export default RemoveLiquidity;
