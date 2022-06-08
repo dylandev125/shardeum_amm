@@ -13,6 +13,9 @@ import THT from "../../assets/Tokens/THT.png";
 import BTC from "../../assets/Tokens/BTC.png";
 import MATIC from "../../assets/Tokens/MATIC.png";
 import USDT from "../../assets/Tokens/USDT.png";
+import Manage from "./Manage";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import IconButton from "@mui/material/IconButton";
 
 const StyledBox = styled(Box)`
   width: 500px;
@@ -36,6 +39,14 @@ const Header = styled.div`
   padding: 20px;
   border-bottom: 1px solid #e0e0e0;
 `;
+const ManageHeader = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+`;
 const Title = styled.span`
   font-family: "Inter";
   font-style: normal;
@@ -48,7 +59,7 @@ const DetailsBody = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 30px;
+  padding: 1rem 30px;
 `;
 const SearchInput = styled.input`
   width: 100%;
@@ -160,19 +171,29 @@ const TokenButton = styled(Button)`
     }
   }
 `;
-// const StyledDivider = styled(Divider)`
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 1px;
-// `;
-// interface Props {
-//   children: React.ReactNode;
-// }
+const ManageTokenListBtn = styled.button`
+  width: 100%;
+  margin-top: 2rem;
+  height: 55px;
+  border: none;
+  color: #ffffff;
+  background: #000000;
+  box-shadow: 4px 3px 14px 2px rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 26px;
+  cursor: pointer;
+  :hover {
+    opacity: 0.95;
+  }
+`;
 
 export default function SelectTokenModal() {
   const [open, setOpen] = React.useState(false);
+  const [manage, setManage] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -199,35 +220,64 @@ export default function SelectTokenModal() {
         aria-describedby="modal-modal-description"
       >
         <StyledBox>
-          <Header>
-            <Title>Select a token</Title>
-            <StyledCloseIcon onClick={handleClose} />
-            {/* <StyledDivider /> */}
-          </Header>
+          {manage ? (
+            <>
+              <ManageHeader>
+                <IconButton onClick={() => setManage(false)}>
+                  <KeyboardBackspaceIcon style={{ color: "#000000" }} />
+                </IconButton>
+                <Title>Manage Token</Title>
+              </ManageHeader>
+            </>
+          ) : (
+            <>
+              <Header>
+                <Title>Select a Token</Title>
+                <StyledCloseIcon onClick={handleClose} />{" "}
+              </Header>
+            </>
+          )}
+
           <DetailsBody>
-            <SearchInput placeholder="Search Tokens" />
-            <CommonTokens>
-              <TokensTitle>COMMON BASES</TokensTitle>
-              <TokenItems>
-                <TokensItem>
-                  <TokenItemIcon src={ETH} />
-                  <TokenItemName>ETH</TokenItemName>
-                </TokensItem>
-                <TokensItem>
-                  <TokenItemIcon src={THT} />
-                  <TokenItemName>THT</TokenItemName>
-                </TokensItem>
-              </TokenItems>
-            </CommonTokens>
-            <Tokens>
-              <TokenItem icon={BTC} title="BTC" description="Ethereum" />
-              <TokenItem icon={ETH} title="ETH" description="Ethereum" />
-              <TokenItem icon={MATIC} title="MATIC" description="Ethereum" />
-              <TokenItem icon={USDT} title="USDT" description="Ethereum" />
-              <TokenItem icon={ETH} title="ETH" description="Ethereum" />
-              <TokenItem icon={MATIC} title="MATIC" description="Ethereum" />
-            </Tokens>
-            <ManageToken children={"Manage token list "} />
+            {manage ? (
+              <Manage />
+            ) : (
+              <>
+                <SearchInput placeholder="Search Tokens" />
+                <CommonTokens>
+                  <TokensTitle>COMMON BASES</TokensTitle>
+                  <TokenItems>
+                    <TokensItem>
+                      <TokenItemIcon src={ETH} />
+                      <TokenItemName>ETH</TokenItemName>
+                    </TokensItem>
+                    <TokensItem>
+                      <TokenItemIcon src={THT} />
+                      <TokenItemName>THT</TokenItemName>
+                    </TokensItem>
+                  </TokenItems>
+                </CommonTokens>
+                <Tokens>
+                  <TokenItem icon={BTC} title="BTC" description="Ethereum" />
+                  <TokenItem icon={ETH} title="ETH" description="Ethereum" />
+                  <TokenItem
+                    icon={MATIC}
+                    title="MATIC"
+                    description="Ethereum"
+                  />
+                  <TokenItem icon={USDT} title="USDT" description="Ethereum" />
+                  <TokenItem icon={ETH} title="ETH" description="Ethereum" />
+                  <TokenItem
+                    icon={MATIC}
+                    title="MATIC"
+                    description="Ethereum"
+                  />
+                </Tokens>
+                <ManageTokenListBtn onClick={() => setManage(true)}>
+                  Manage Token List
+                </ManageTokenListBtn>
+              </>
+            )}
           </DetailsBody>
         </StyledBox>
       </Modal>
