@@ -99,10 +99,10 @@ export default function BasicTabs() {
         <Swap />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <TabHeader
+        {/* <TabHeader
           title="Liquidity"
           text="Add Liquidity and earn a 0.3% fee on all trades proportional to your contribution in the pool"
-        />
+        /> */}
         <Liquidity />
       </TabPanel>
     </Box>

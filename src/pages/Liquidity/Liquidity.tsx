@@ -1,231 +1,148 @@
 import React from "react";
 import styled from "styled-components";
-import BNB from "../../assets/Tokens/BNB.png";
-import ETH from "../../assets/Tokens/ETH.png";
-import KeyboardArrowDownSharpIcon from "@mui/icons-material/KeyboardArrowDownSharp";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import RemoveLiquidity from "../../components/Liquidity/Remove/RemoveLiquidity";
-import AddLiquidity from "../../components/Liquidity/Add/AddLiquidity";
+import LiquidityHeader from "../../components/Liquidity/LiquidityHeader";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { IconButton } from "@mui/material";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import AddIcon from "@mui/icons-material/Add";
 
-interface LiquidityItemDetailsProps {
-  display: boolean;
-}
-
-const LiquidityItemDiv = styled.div`
+const PoolWrapper = styled.div`
+  width: 510px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 1px 14px 54px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+  margin: 0px auto;
+  margin-top: 1rem;
+`;
+const PoolHeader = styled.div`
+  height: 80px;
+  border-bottom: 1px solid #e0e0e0;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 60px;
-  padding: 25px;
-  margin: 30px 0;
-  cursor: pointer;
-  background: #fff;
-  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.15);
-`;
-const LiquidityTitleDiv = styled.div`
-  display: flex;
   align-items: center;
-  justify-content: flex-start;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
-const LiquidityTitleImg = styled.img`
-  width: 50px;
-  height: 50px;
-  margin-right: 25px;
-`;
-const LiquidityTitleText = styled.div`
-  font-size: 20px;
+const PoolTitle = styled.span`
+  font-size: 18px;
+  line-height: 25px;
   font-weight: 700;
-  line-height: 24px;
   font-family: "Inter";
   font-style: normal;
 `;
-const LiquidityArrowDiv = styled.div`
-  width: 55px;
-  height: 55px;
-  background: #f1f1f1;
-  border-radius: 50%;
+const PoolDetails = styled.div`
+  padding: 2rem;
+`;
+const InputDiv = styled.div`
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-`;
-const LiquidityItemContentDiv = styled.div<LiquidityItemDetailsProps>`
-  ${({ display }) =>
-    display &&
-    `
-    background: #fff;
-    padding-bottom: 30px;
-    border-radius: 10px;
-  `}
-`;
-const LiquidityDetailsDiv = styled.div<LiquidityItemDetailsProps>`
-  padding: 25px 25px;
-  cursor: pointer;
-  ${({ display }) =>
-    display &&
-    `
-  display: none;
-`}
-`;
-const DetailsDiv = styled.div`
-  display: flex;
   justify-content: space-between;
-  @media only screen and (max-width: 600px) {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  cursor: pointer;
+  background: #ffffff;
 `;
-const DetailsItem = styled.div`
-  width: 100%;
+const InputDetails = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 `;
-const ItemTitle = styled.div`
+const InputIcon = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+const InputText = styled.span`
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 24px;
-  color: #616161;
-`;
-const ItemValue = styled.div`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
+  line-height: 21px;
   color: #212121;
-  margin-top: 10px;
 `;
-const DetailButtonsDiv = styled.div`
+
+const AddStyledBtn = styled.div`
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 25px;
-  margin-top: 40px;
-  @media only screen and (max-width: 600px) {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-const AddButton = styled.div`
-  width: 280px;
-  height: 55px;
-  background: #000000;
-  box-shadow: 1px 14px 54px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 26px;
-  font-family: "Inter";
-  font-style: normal;
-  color: #ffffff;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #000000;
+  box-shadow: 4px 3px 14px 2px rgba(0, 0, 0, 0.18);
+  border-radius: 50%;
+  margin: 0px auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
 `;
-const RemoveButton = styled.div`
-  width: 280px;
-  height: 55px;
-  border: 1px solid #000000;
-  box-sizing: border-box;
+const TokenBtn = styled.div`
+  width: 100%;
+  height: 45px;
+  background: #e0e0e0;
   border-radius: 10px;
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 21px;
   font-weight: 600;
-  line-height: 26px;
+  font-style: normal;
+  font-family: "Inter";
+  color: #a9a9a9;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+`;
+const PositionDiv = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
   font-family: "Inter";
   font-style: normal;
   color: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 1rem;
+  cursor: pointer;
 `;
 
 const Liquidity = () => {
-  const [showDetails, setShowDetails] = React.useState(false);
-  const [isRemoveModalOpen, setIsRemoveModalOpen] = React.useState(false);
-  const [addliquidity, setAddliquidity] = React.useState(false);
-
-  const handleBack = () => {
-    setIsRemoveModalOpen(false);
-  };
-  const handleBack2 = () => {
-    setAddliquidity(false);
-  };
-
   return (
-    <div>
-      {isRemoveModalOpen ? (
-        <RemoveLiquidity handleBack={handleBack} />
-      ) : addliquidity ? (
-        <AddLiquidity handleBack={handleBack2} />
-      ) : (
-        <>
-          <div>
-            <LiquidityItemContentDiv display={showDetails}>
-              <LiquidityItemDiv onClick={() => setShowDetails(!showDetails)}>
-                <LiquidityTitleDiv>
-                  <LiquidityTitleImg src={BNB} />
-                  <LiquidityTitleImg src={ETH} />
-                  <LiquidityTitleText>ETH / USDT</LiquidityTitleText>
-                </LiquidityTitleDiv>
-                <LiquidityArrowDiv>
-                  {showDetails ? (
-                    <KeyboardArrowUpIcon
-                      style={{
-                        width: "25px ",
-                        height: "25px",
-                        color: "#000000",
-                      }}
-                    />
-                  ) : (
-                    <KeyboardArrowDownSharpIcon
-                      style={{
-                        width: "25px ",
-                        height: "25px",
-                        color: "#000000",
-                      }}
-                    />
-                  )}
-                </LiquidityArrowDiv>
-              </LiquidityItemDiv>
-              <LiquidityDetailsDiv display={!showDetails}>
-                <DetailsDiv>
-                  <DetailsItem>
-                    <ItemTitle>Your total MATIC/USDC Pool</ItemTitle>
-                    <ItemValue>0.0000001545515</ItemValue>
-                  </DetailsItem>
-                  <DetailsItem>
-                    <ItemTitle>Pooled MATIC</ItemTitle>
-                    <ItemValue>5.2954</ItemValue>
-                  </DetailsItem>
-                  <DetailsItem>
-                    <ItemTitle>Pooled USDC</ItemTitle>
-                    <ItemValue>5.2954</ItemValue>
-                  </DetailsItem>
-                  <DetailsItem>
-                    <ItemTitle>Your Pool share</ItemTitle>
-                    <ItemValue>0.04%</ItemValue>
-                  </DetailsItem>
-                </DetailsDiv>
-                <DetailButtonsDiv>
-                  <RemoveButton
-                    onClick={() => {
-                      setIsRemoveModalOpen(true);
-                      setShowDetails(false);
-                    }}
-                  >
-                    Remove
-                  </RemoveButton>
-                  <AddButton onClick={() => setAddliquidity(true)}>
-                    Add
-                  </AddButton>
-                </DetailButtonsDiv>
-              </LiquidityDetailsDiv>
-            </LiquidityItemContentDiv>
-          </div>
-        </>
-      )}
-    </div>
+    <>
+      <LiquidityHeader />
+      <PoolWrapper>
+        <PoolHeader>
+          <PoolTitle>Import pool</PoolTitle>
+          <IconButton>
+            <SettingsIcon style={{ color: "#212121" }} />
+          </IconButton>
+        </PoolHeader>
+        <PoolDetails>
+          <InputDiv>
+            <InputDetails>
+              {/* <InputIcon /> */}
+              <InputText>Select Coin</InputText>
+            </InputDetails>
+            <ArrowDropDownIcon style={{ color: "#808080" }} />
+          </InputDiv>
+          <AddStyledBtn>
+            <AddIcon
+              style={{ width: "30px", height: "30px", color: "white" }}
+            />
+          </AddStyledBtn>
+          <InputDiv>
+            <InputDetails>
+              {/* <InputIcon /> */}
+              <InputText>Select Coin</InputText>
+            </InputDetails>
+            <ArrowDropDownIcon style={{ color: "#808080" }} />
+          </InputDiv>
+          <TokenBtn>Select a token to find your liquidity</TokenBtn>
+          <PositionDiv>View Position</PositionDiv>
+        </PoolDetails>
+      </PoolWrapper>
+    </>
   );
 };
 

@@ -14,29 +14,24 @@ const Wrapper = styled.div`
     width: 100%;
   }
 `;
-const Title = styled.span`
+const Title = styled.div`
   font-family: "Inter";
   font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 39px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 35px;
   color: #000000;
-  @media only screen and (max-width: 600px) {
-    font-size: 21px;
-    line-height: 25px;
-  }
 `;
 const Text = styled.div`
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: #616161;
   padding-right: 10px;
 `;
 const Divider = styled.div`
-  border: 1px solid #616161;
+  border-right: 2px solid #616161;
   height: 55px;
 `;
 
