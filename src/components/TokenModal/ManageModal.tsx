@@ -52,18 +52,18 @@ const SearchInput = styled.input`
   }
 `;
 const Tokens = styled.div`
-width: 100%;
-height 260px;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  margin-top: 1rem;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-`;
+  width: 100%;
+  height 260px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin-top: 1rem;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  `;
 
-const Manage = () => {
+const ManageModal = () => {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(0);
@@ -112,4 +112,4 @@ const Manage = () => {
   );
 };
 
-export default Manage;
+export default ManageModal;

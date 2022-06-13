@@ -4,16 +4,16 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
-import TokenItem from "./TokenItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ETH from "../../assets/Tokens/ETH.png";
 import THT from "../../assets/Tokens/THT.png";
 import BTC from "../../assets/Tokens/BTC.png";
 import MATIC from "../../assets/Tokens/MATIC.png";
 import USDT from "../../assets/Tokens/USDT.png";
-import Manage from "./Manage";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import IconButton from "@mui/material/IconButton";
+import TokenItem from "./TokenItem";
+import ManageModal from "./ManageModal";
 
 const StyledBox = styled(Box)`
   width: 500px;
@@ -189,28 +189,23 @@ const ManageTokenListBtn = styled.button`
   }
 `;
 
-export default function SelectTokenModal() {
-  const [open, setOpen] = React.useState(false);
-  const [manage, setManage] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+interface Props {
+  open: boolean;
+  handleClose: () => void;
+  manage: boolean;
+  handleManage: () => void;
+  handleBack: () => void;
+}
 
+const TokenModal = ({
+  open,
+  handleClose,
+  manage,
+  handleManage,
+  handleBack,
+}: Props) => {
   return (
     <>
-      <TokenButton onClick={handleOpen}>
-        <img
-          src={ETH}
-          alt="ETH"
-          style={{
-            width: "24px",
-            height: "24px",
-            marginRight: "5px",
-          }}
-        />
-        ETH
-        <KeyboardArrowDownIcon style={{ width: "23px", height: "23px" }} />
-      </TokenButton>
-
       <Modal
         open={open}
         onClose={handleClose}
@@ -221,7 +216,7 @@ export default function SelectTokenModal() {
           {manage ? (
             <>
               <ManageHeader>
-                <IconButton onClick={() => setManage(false)}>
+                <IconButton onClick={handleBack}>
                   <KeyboardBackspaceIcon style={{ color: "#000000" }} />
                 </IconButton>
                 <Title>Manage Token</Title>
@@ -238,7 +233,7 @@ export default function SelectTokenModal() {
 
           <DetailsBody>
             {manage ? (
-              <Manage />
+              <ManageModal />
             ) : (
               <>
                 <SearchInput placeholder="Search Tokens" />
@@ -271,7 +266,7 @@ export default function SelectTokenModal() {
                     description="Ethereum"
                   />
                 </Tokens>
-                <ManageTokenListBtn onClick={() => setManage(true)}>
+                <ManageTokenListBtn onClick={handleManage}>
                   Manage Token List
                 </ManageTokenListBtn>
               </>
@@ -281,4 +276,6 @@ export default function SelectTokenModal() {
       </Modal>
     </>
   );
-}
+};
+
+export default TokenModal;

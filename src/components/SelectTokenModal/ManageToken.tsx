@@ -59,7 +59,6 @@ const StyledIcon = styled(ArrowBackIcon)`
   cursor: pointer;
   color: #000;
   padding: 0.5rem;
-
   :hover {
     background: #e0e0e070;
     padding: 0.5rem;
