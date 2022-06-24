@@ -4,6 +4,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Dialog from "../Dialog";
 import SettingsModal from "./SettingsModal/SettingsModal";
 import SelectTokenModal from "../SelectTokenModal";
+import { useWeb3React } from "@web3-react/core";
 
 const Wrapper = styled.div`
   width: 510px;
@@ -160,6 +161,7 @@ function SwapModal() {
   const [swap, setSwap] = useState(true);
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
+  const { active, account } = useWeb3React();
 
   const OnChageField = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue1(e.target.value);
@@ -257,7 +259,7 @@ function SwapModal() {
           )}
         </SwapWrapper>
 
-        {isWalletConnected ? (
+        {active ? (
           <>
             <Dialog
               transaction="submitted"

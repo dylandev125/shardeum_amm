@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/Tokens/Logo.png";
 import styled from "styled-components";
 import ConnectWallet from "./Network/ConnectWallet";
-import SwitchNetwork from "./Network/SwitchNetwork";
+// import SwitchNetwork from "./Network/SwitchNetwork";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -37,7 +37,6 @@ const Header = () => {
         <Logo src={logo} alt="logo" />
         <HeaderItems>
           <ConnectWallet />
-          <SwitchNetwork />
         </HeaderItems>
       </HeaderWrapper>
     </Wrapper>

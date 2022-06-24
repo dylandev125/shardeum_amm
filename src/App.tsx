@@ -2,6 +2,12 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
 import TabPanel from "./components/TabPanel/index";
+import { Web3ReactProvider } from '@web3-react/core';
+import {
+  ExternalProvider,
+  JsonRpcFetchFunc,
+  Web3Provider,
+} from '@ethersproject/providers';
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -28,14 +34,19 @@ input[type=number] {
 `;
 
 function App() {
+
+  const getLibrary = (provider: ExternalProvider | JsonRpcFetchFunc) => {
+    return new Web3Provider(provider);
+  };
+
   return (
-    <>
+    <Web3ReactProvider getLibrary={getLibrary}>
       <GlobalStyles />
       <AppWrapper>
         <Header />
         <TabPanel />
       </AppWrapper>
-    </>
+    </Web3ReactProvider>
   );
 }
 

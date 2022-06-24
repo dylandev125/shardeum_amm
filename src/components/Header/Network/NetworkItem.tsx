@@ -6,7 +6,7 @@ interface Props {
   id: number;
   text: string;
   choosen?: number;
-  setChoosen?: (choosen: number) => void;
+  onWalletClick: () => void;
   type: string;
 }
 
@@ -46,12 +46,12 @@ const StyledCheclIcon = styled(CheckRoundedIcon)`
   right: 20px;
 `;
 
-function NetworkItem({ id, image, text, choosen, setChoosen, type }: Props) {
+function NetworkItem({ id, image, text, choosen, onWalletClick, type }: Props) {
   return (
-    <Wrapper onClick={() => setChoosen && setChoosen(id)}>
+    <Wrapper onClick={() => onWalletClick()}>
       <Image src={image} alt={text} />
       <Text>{text}</Text>
-    
+
       {choosen === id && type === "network" ? <StyledCheclIcon /> : null}
     </Wrapper>
   );

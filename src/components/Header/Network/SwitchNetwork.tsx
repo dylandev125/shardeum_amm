@@ -166,10 +166,10 @@ function SwitchNetwork() {
                   key={index}
                   type="network"
                   id={index}
-                  choosen={choosenNetwork}
-                  setChoosen={setChoosenNetwork}
+                  choosen={0}
                   image={item.icon}
                   text={item.name}
+                  onWalletClick={() => {}}
                 />
               ))}
             </Networks>
